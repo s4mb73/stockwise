@@ -129,7 +129,7 @@ function wireEmailStep(){
 function syncNextBtn(){
   const btn=document.getElementById('fnx');
   if(cur===4){
-    btn.textContent='Join waitlist';
+    btn.textContent='Submit application';
     const name=document.getElementById('fN').value.trim();
     const email=document.getElementById('fE').value.trim();
     btn.disabled=!(name.length>=2 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
@@ -178,7 +178,7 @@ async function submitForm(){
     showStep(5);
   }catch(e){
     err.textContent=e.message;err.style.display='block';
-    btn.disabled=false;btn.textContent='Join waitlist';
+    btn.disabled=false;btn.textContent='Submit application';
   }
 }
 

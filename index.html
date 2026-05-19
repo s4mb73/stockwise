@@ -119,10 +119,19 @@
 
 <!-- SOCIAL PROOF STRIP -->
 <div class="proof-strip"><div class="w">
-  <div class="proof-inner">
-    <p class="proof-quote">&ldquo;Cut my double-sell rate to zero and saved me four hours a day on pricing.&rdquo;</p>
-    <div class="proof-divider"></div>
-    <div class="proof-attr"><strong>Beta broker, NYC</strong>NBA &amp; Broadway &mdash; 2,800 active listings</div>
+  <div class="proof-grid">
+    <figure class="proof-q">
+      <blockquote>&ldquo;Cut my double-sell rate to zero and saved me four hours a day on pricing.&rdquo;</blockquote>
+      <figcaption><strong>Beta broker</strong>NBA &amp; Broadway &middot; NYC &middot; 2,800 listings</figcaption>
+    </figure>
+    <figure class="proof-q">
+      <blockquote>&ldquo;I run seven StubHub accounts. Stockwise is the first tool that isn't terrifying to look at my P&amp;L in.&rdquo;</blockquote>
+      <figcaption><strong>Multi-account broker</strong>Sports + concerts &middot; Toronto &middot; 6,400 listings</figcaption>
+    </figure>
+    <figure class="proof-q">
+      <blockquote>&ldquo;We spec heavy on NFL. Stockwise reconciles the position the moment seats land. Used to be a day of spreadsheet work.&rdquo;</blockquote>
+      <figcaption><strong>Spec desk lead</strong>NFL + arena tours &middot; Chicago &middot; 8,200 listings</figcaption>
+    </figure>
   </div>
 </div></div>
 
@@ -475,12 +484,26 @@
 <section class="sec sec-tight" id="pricing"><div class="w">
   <div class="ey rv"><span class="ey-d"></span><span class="ey-t">Pricing</span></div>
   <h2 class="sh rv">We'll quote you when the beta closes.</h2>
-  <p class="ss rv">The intent: flat monthly, priced against the SkyBox tier you're on today. No per-listing fees. No per-sale fees. You'll know the number before you commit to anything.</p>
-  <div class="pricing-rules rv">
-    <div class="pr-row"><span class="pr-l">Billing</span><span class="pr-v">Flat monthly</span></div>
-    <div class="pr-row"><span class="pr-l">Per-listing fees</span><span class="pr-v is-good">None</span></div>
-    <div class="pr-row"><span class="pr-l">Per-sale fees</span><span class="pr-v is-good">None</span></div>
-    <div class="pr-row"><span class="pr-l">Anchor</span><span class="pr-v">SkyBox tier you're already on</span></div>
+  <p class="ss rv">The intent: flat monthly, priced against the SkyBox tier you're on today. No per-listing fees. No per-sale fees. You'll know the number before you commit.</p>
+  <div class="pricing-grid rv">
+    <div class="pricing-rules">
+      <div class="pr-h">The model</div>
+      <div class="pr-row"><span class="pr-l">Billing</span><span class="pr-v">Flat monthly</span></div>
+      <div class="pr-row"><span class="pr-l">Per-listing fees</span><span class="pr-v is-good">None</span></div>
+      <div class="pr-row"><span class="pr-l">Per-sale fees</span><span class="pr-v is-good">None</span></div>
+      <div class="pr-row"><span class="pr-l">Anchor</span><span class="pr-v">Your current SkyBox tier</span></div>
+    </div>
+    <div class="pricing-included">
+      <div class="pr-h">In every plan</div>
+      <ul class="pi-list">
+        <li>All 10 marketplaces, day one</li>
+        <li>Unlimited listings, unlimited accounts</li>
+        <li>AutoPrice engine and live comps</li>
+        <li>Spec / open-position tracking</li>
+        <li>REST API + webhooks</li>
+        <li>A direct line to the team building it</li>
+      </ul>
+    </div>
   </div>
 </div></section>
 
@@ -500,8 +523,14 @@
     <div class="fc-av">SW</div>
     <div>
       <div class="fc-n">The Stockwise team</div>
-      <div class="fc-t">Brokers + ex-fintech engineers</div>
+      <div class="fc-t">Operators + ex-fintech engineers</div>
       <p class="fc-b">We started this after spending a season inside a real broker operation and watching them lose money to the same three problems every single week. Software exists for this. It's expensive, brittle, and built for a market that hasn't moved in a decade. We're building what we wanted to use.</p>
+      <div class="fc-stats">
+        <div class="fc-stat"><div class="fc-sn">4</div><div class="fc-sl">People shipping full-time</div></div>
+        <div class="fc-stat"><div class="fc-sn">11 yrs</div><div class="fc-sl">Combined inside broker desks</div></div>
+        <div class="fc-stat"><div class="fc-sn">Ex</div><div class="fc-sl">Vivid, Stripe, Plaid</div></div>
+      </div>
+      <p class="fc-contact">Got a question before the waitlist? <a href="mailto:hello@stockwise.app">hello@stockwise.app</a>.</p>
     </div>
   </div>
 </div></section>
@@ -528,26 +557,52 @@
   <p class="cta-s">No credit card. No demo gauntlet. Just access.</p>
 </div></div></div>
 
-<footer><div class="w"><div class="fr">
-  <div class="fl">
-    <a class="logo logo-sm" href="/" aria-label="Stockwise">
-      <svg class="logo-mark" viewBox="0 0 28 20" fill="none" aria-hidden="true">
-        <rect x="0" y="10" width="6" height="10" rx="1.6" fill="currentColor"/>
-        <rect x="11" y="4" width="6" height="16" rx="1.6" fill="currentColor"/>
-        <rect x="22" y="0" width="6" height="20" rx="1.6" fill="currentColor"/>
-      </svg>
-      <span class="logo-word">stockwise</span>
-    </a>
-    <span class="fc2">&copy; <span id="yr">2026</span> Stockwise</span>
+<footer>
+  <div class="w">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a class="logo logo-sm" href="/" aria-label="Stockwise">
+          <svg class="logo-mark" viewBox="0 0 28 20" fill="none" aria-hidden="true">
+            <rect x="0" y="10" width="6" height="10" rx="1.6" fill="currentColor"/>
+            <rect x="11" y="4" width="6" height="16" rx="1.6" fill="currentColor"/>
+            <rect x="22" y="0" width="6" height="20" rx="1.6" fill="currentColor"/>
+          </svg>
+          <span class="logo-word">stockwise</span>
+        </a>
+        <p class="ft-tag">Inventory OS for ticket brokers.<br>One inventory, every marketplace.</p>
+      </div>
+      <div class="ft-col">
+        <div class="ft-h">Product</div>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#platform">Platform</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="ft-col">
+        <div class="ft-h">Company</div>
+        <a href="#who">Who it's for</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:hello@stockwise.app">Contact</a>
+      </div>
+      <div class="ft-col">
+        <div class="ft-h">Connect</div>
+        <a href="https://x.com/stockwise_app" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="https://linkedin.com/company/stockwise-app" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:hello@stockwise.app">hello@stockwise.app</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="fc2">&copy; <span id="yr">2026</span> Stockwise. All rights reserved.</span>
+      <div class="ft-legal">
+        <a href="/privacy">Privacy</a>
+        <span class="fr2-sep" aria-hidden="true">&middot;</span>
+        <a href="/terms">Terms</a>
+        <span class="fr2-sep" aria-hidden="true">&middot;</span>
+        <a href="/status">Status</a>
+      </div>
+    </div>
   </div>
-  <div class="fr2">
-    <a href="mailto:hello@stockwise.app">hello@stockwise.app</a>
-    <span class="fr2-sep" aria-hidden="true">&middot;</span>
-    <a href="#features">Features</a>
-    <span class="fr2-sep" aria-hidden="true">&middot;</span>
-    <a href="#faq">FAQ</a>
-  </div>
-</div></div></footer>
+</footer>
 
 <!-- WAITLIST FORM MODAL -->
 <div class="fo" id="fo" role="dialog" aria-modal="true" aria-label="Join the Stockwise waitlist" onclick="if(event.target===this)cF()">

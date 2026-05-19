@@ -408,9 +408,11 @@ footer{border-top:1px solid var(--border);padding:24px 0}
 .fd.dn{background:var(--t3)}
 .fbk{font-size:12px;color:var(--t3);cursor:pointer;border:none;background:none;font-family:inherit;transition:color .2s var(--ease)}
 .fbk:hover{color:var(--t1)}
-.fnx{background:var(--accent);color:var(--bg);padding:8px 18px;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:background .2s var(--ease)}
+.fnx{background:var(--accent);color:var(--bg);padding:8px 18px;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:7px;transition:background .2s var(--ease)}
 .fnx:hover{background:var(--accent-h)}
 .fnx:disabled{opacity:.3;cursor:default}
+.fnx-spin{width:11px;height:11px;border:1.5px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
 .fin{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:16px;font-family:inherit;color:var(--t1);background:var(--s2);outline:none;margin-bottom:6px;transition:border-color .2s var(--ease)}
 .fin:focus{border-color:var(--accent)}
 .fin::placeholder{color:var(--t3)}
@@ -466,6 +468,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
   .pp-live-dot,.hb-dot::after,.ey-d::after{animation:none}
   .sn::after{transform:translateX(-50%) scaleX(1) !important;transition:none !important}
   .btn-arr::after{transition:none}
+  .fnx-spin{animation:none;border-right-color:currentColor}
 }
 
 @media (prefers-reduced-motion: reduce){

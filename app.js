@@ -167,7 +167,8 @@ async function submitForm(){
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Please enter a valid email.';err.style.display='block';return}
 
   const btn=document.getElementById('fnx');
-  btn.disabled=true;btn.textContent='Sending…';
+  btn.disabled=true;
+  btn.innerHTML='<span class="fnx-spin" aria-hidden="true"></span>Sending…';
 
   try{
     const r=await fetch('/api/waitlist',{

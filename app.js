@@ -65,8 +65,8 @@ document.querySelectorAll('.fq').forEach(btn=>{
 });
 
 // ── Waitlist form ──────────────────────────────────────
-const FORM_STEPS=4;             // 4 question steps then email step
-const ans={s1:null,s2:null,s3:null};
+const FORM_STEPS=5;             // 5 question steps, then success screen
+const ans={s1:null,s2:null,s3:null,s4:null};
 let cur=1;
 
 function oF(){
@@ -103,36 +103,38 @@ function renderDots(){
   document.getElementById('fbk').style.display=cur>1?'block':'none';
 }
 
-// Steps: f1-f3 are MCQs, f4 is name/company/email inputs, f5 is the success screen.
+// Steps: f1-f4 are MCQs, f5 is the contact fields step, f6 is the success screen.
 function showStep(n){
-  for(let i=1;i<=5;i++){
+  for(let i=1;i<=6;i++){
     const el=document.getElementById('f'+i);
     if(el) el.style.display=i===n?'block':'none';
   }
-  document.getElementById('fnv').style.display=n===5?'none':'flex';
+  document.getElementById('fnv').style.display=n===6?'none':'flex';
   cur=n;
   renderDots();
 }
 
-let emailWired=false;
-function wireEmailStep(){
-  if(emailWired) return; emailWired=true;
-  const en=()=>{
-    const name=document.getElementById('fN').value.trim();
-    const email=document.getElementById('fE').value.trim();
-    const ok=name.length>=2 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    document.getElementById('fnx').disabled=!ok;
-  };
-  ['fN','fE'].forEach(id=>document.getElementById(id).addEventListener('input',en));
+function applyValid(){
+  const name=document.getElementById('fN').value.trim();
+  const email=document.getElementById('fE').value.trim();
+  const location=document.getElementById('fL').value.trim();
+  return name.length>=2
+    && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    && location.length>=2;
+}
+
+let contactWired=false;
+function wireContactStep(){
+  if(contactWired) return; contactWired=true;
+  const en=()=>{document.getElementById('fnx').disabled=!applyValid()};
+  ['fN','fE','fL'].forEach(id=>document.getElementById(id).addEventListener('input',en));
 }
 
 function syncNextBtn(){
   const btn=document.getElementById('fnx');
-  if(cur===4){
+  if(cur===FORM_STEPS){
     btn.textContent='Submit application';
-    const name=document.getElementById('fN').value.trim();
-    const email=document.getElementById('fE').value.trim();
-    btn.disabled=!(name.length>=2 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+    btn.disabled=!applyValid();
   }else{
     btn.textContent='Next';
     btn.disabled=!ans['s'+cur];
@@ -140,9 +142,9 @@ function syncNextBtn(){
 }
 
 function nx(){
-  if(cur===4) return submitForm();
+  if(cur===FORM_STEPS) return submitForm();
   showStep(cur+1);
-  if(cur===4) wireEmailStep();
+  if(cur===FORM_STEPS) wireContactStep();
   syncNextBtn();
 }
 
@@ -155,11 +157,14 @@ async function submitForm(){
   const name=document.getElementById('fN').value.trim();
   const company=document.getElementById('fC').value.trim();
   const email=document.getElementById('fE').value.trim();
+  const discord=document.getElementById('fD').value.trim();
+  const location=document.getElementById('fL').value.trim();
   const err=document.getElementById('fErr');
   err.style.display='none';
 
   if(name.length<2){err.textContent='Please enter your name.';err.style.display='block';return}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Please enter a valid email.';err.style.display='block';return}
+  if(location.length<2){err.textContent='Please tell us where your brokerage is registered.';err.style.display='block';return}
 
   const btn=document.getElementById('fnx');
   btn.disabled=true;
@@ -169,13 +174,13 @@ async function submitForm(){
     const r=await fetch('/api/waitlist',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name,company,email,s1:ans.s1,s2:ans.s2,s3:ans.s3})
+      body:JSON.stringify({name,company,email,discord,location,s1:ans.s1,s2:ans.s2,s3:ans.s3,s4:ans.s4})
     });
     if(!r.ok){
       const j=await r.json().catch(()=>({}));
       throw new Error(j.error||'Could not submit');
     }
-    showStep(5);
+    showStep(FORM_STEPS+1);
   }catch(e){
     err.textContent=e.message;err.style.display='block';
     btn.disabled=false;btn.textContent='Submit application';

@@ -628,17 +628,26 @@
   <div class="fcard">
     <button class="fx" aria-label="Close" onclick="cF()">&#x2715;</button>
     <div id="f1">
-      <div class="fh"><div class="fsl">Step 1 of 4</div><div class="ftl" id="ftl-main">How many active listings do you run?</div><div class="fsb">So we can size the right plan and cohort for you.</div></div>
+      <div class="fh"><div class="fsl">Step 1 of 5</div><div class="ftl" id="ftl-main">How big is your brokerage?</div><div class="fsb">Number of people working in it &mdash; helps us size the right plan.</div></div>
       <div class="fbd"><div class="fos" data-s="1">
-        <button type="button" class="fop" onclick="sO(this)">Under 500</button>
-        <button type="button" class="fop" onclick="sO(this)">500 &mdash; 2,000</button>
-        <button type="button" class="fop" onclick="sO(this)">2,000 &mdash; 10,000</button>
-        <button type="button" class="fop" onclick="sO(this)">10,000+</button>
+        <button type="button" class="fop" onclick="sO(this)">Just me (solo)</button>
+        <button type="button" class="fop" onclick="sO(this)">2 &ndash; 5 people</button>
+        <button type="button" class="fop" onclick="sO(this)">6 &ndash; 15 people</button>
+        <button type="button" class="fop" onclick="sO(this)">16+ people</button>
       </div></div>
     </div>
     <div id="f2" style="display:none">
-      <div class="fh"><div class="fsl">Step 2 of 4</div><div class="ftl">What are you using right now?</div><div class="fsb">Honest answer is fine. Most brokers we talk to use two or three of these.</div></div>
+      <div class="fh"><div class="fsl">Step 2 of 5</div><div class="ftl">What's your monthly revenue?</div><div class="fsb">Rough range is fine. Helps us match you to the right cohort.</div></div>
       <div class="fbd"><div class="fos" data-s="2">
+        <button type="button" class="fop" onclick="sO(this)">Under $25k / month</button>
+        <button type="button" class="fop" onclick="sO(this)">$25k &ndash; $100k / month</button>
+        <button type="button" class="fop" onclick="sO(this)">$100k &ndash; $500k / month</button>
+        <button type="button" class="fop" onclick="sO(this)">$500k+ / month</button>
+      </div></div>
+    </div>
+    <div id="f3" style="display:none">
+      <div class="fh"><div class="fsl">Step 3 of 5</div><div class="ftl">What are you using right now?</div><div class="fsb">Honest answer is fine. Most brokers we talk to use two or three of these.</div></div>
+      <div class="fbd"><div class="fos" data-s="3">
         <button type="button" class="fop" onclick="sO(this)">A dedicated POS</button>
         <button type="button" class="fop" onclick="sO(this)">A pricing tool only</button>
         <button type="button" class="fop" onclick="sO(this)">Spreadsheets</button>
@@ -646,30 +655,34 @@
         <button type="button" class="fop" onclick="sO(this)">Something else</button>
       </div></div>
     </div>
-    <div id="f3" style="display:none">
-      <div class="fh"><div class="fsl">Step 3 of 4</div><div class="ftl">Where do you sell?</div><div class="fsb">Pick your main channel &mdash; we'll cover the rest.</div></div>
-      <div class="fbd"><div class="fos" data-s="3">
+    <div id="f4" style="display:none">
+      <div class="fh"><div class="fsl">Step 4 of 5</div><div class="ftl">Where do you sell?</div><div class="fsb">Pick your main channel &mdash; we'll cover the rest.</div></div>
+      <div class="fbd"><div class="fos" data-s="4">
         <button type="button" class="fop" onclick="sO(this)">StubHub</button>
         <button type="button" class="fop" onclick="sO(this)">SeatGeek</button>
         <button type="button" class="fop" onclick="sO(this)">Vivid Seats</button>
-        <button type="button" class="fop" onclick="sO(this)">Ticketmaster</button>
+        <button type="button" class="fop" onclick="sO(this)">Tixstock</button>
         <button type="button" class="fop" onclick="sO(this)">Multiple &mdash; it's a mix</button>
       </div></div>
     </div>
-    <div id="f4" style="display:none">
-      <div class="fh"><div class="fsl">Step 4 of 4</div><div class="ftl">Where do we reach you?</div><div class="fsb">We review applications weekly. We'll be in touch within the week.</div></div>
+    <div id="f5" style="display:none">
+      <div class="fh"><div class="fsl">Step 5 of 5</div><div class="ftl">Where do we reach you?</div><div class="fsb">We review applications weekly. We'll be in touch within the week.</div></div>
       <div class="fbd">
         <label for="fN" class="sr-only">Your name</label>
         <input class="fin" type="text" id="fN" name="name" placeholder="Your name" required autocomplete="name">
-        <label for="fC" class="sr-only">Company name</label>
-        <input class="fin" type="text" id="fC" name="company" placeholder="Company name (optional)" autocomplete="organization">
+        <label for="fC" class="sr-only">Brokerage name</label>
+        <input class="fin" type="text" id="fC" name="company" placeholder="Brokerage name (optional)" autocomplete="organization">
         <label for="fE" class="sr-only">Work email</label>
         <input class="fin" type="email" id="fE" name="email" placeholder="Work email" required autocomplete="email">
+        <label for="fD" class="sr-only">Discord username</label>
+        <input class="fin" type="text" id="fD" name="discord" placeholder="Discord username (optional)" autocomplete="off">
+        <label for="fL" class="sr-only">Where is your brokerage registered?</label>
+        <input class="fin" type="text" id="fL" name="location" placeholder="Where is your brokerage registered? (e.g. Dubai, UK, US)" required autocomplete="off">
         <div id="fErr" role="alert" style="font-size:11.5px;color:#f87171;margin-top:6px;display:none"></div>
         <div style="font-size:11.5px;color:var(--t3);margin-top:6px">We never share your information.</div>
       </div>
     </div>
-    <div id="f5" style="display:none">
+    <div id="f6" style="display:none">
       <div class="fsc">
         <div class="fsc-i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="fsc-h">Application received.</div>
@@ -677,7 +690,7 @@
       </div>
     </div>
     <div class="fnv" id="fnv">
-      <div class="fds"><div class="fd ac" id="dd1"></div><div class="fd" id="dd2"></div><div class="fd" id="dd3"></div><div class="fd" id="dd4"></div></div>
+      <div class="fds"><div class="fd ac" id="dd1"></div><div class="fd" id="dd2"></div><div class="fd" id="dd3"></div><div class="fd" id="dd4"></div><div class="fd" id="dd5"></div></div>
       <div style="display:flex;gap:6px;align-items:center">
         <button class="fbk" id="fbk" onclick="pv()" style="display:none">Back</button>
         <button class="fnx" id="fnx" onclick="nx()" disabled>Next</button>

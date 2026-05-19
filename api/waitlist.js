@@ -63,26 +63,30 @@ export default async function handler(req, res) {
   if (!body || typeof body !== 'object') return res.status(400).json({ error: 'Missing body' });
 
   const trim = (v, max = 200) => String(v || '').trim().slice(0, max);
-  const name    = trim(body.name);
-  const email   = trim(body.email).toLowerCase();
-  const company = trim(body.company);
-  const volume  = trim(body.s1, 80);
-  const tool    = trim(body.s2, 80);
-  const market  = trim(body.s3, 80);
+  const name      = trim(body.name);
+  const email     = trim(body.email).toLowerCase();
+  const company   = trim(body.company);
+  const discord   = trim(body.discord, 80);
+  const location  = trim(body.location, 120);
+  const teamSize  = trim(body.s1, 80);
+  const revenue   = trim(body.s2, 80);
+  const tool      = trim(body.s3, 80);
+  const market    = trim(body.s4, 80);
 
   if (!name) return res.status(400).json({ error: 'Name is required' });
   if (!EMAIL_RE.test(email)) return res.status(400).json({ error: 'Valid email is required' });
+  if (!location) return res.status(400).json({ error: 'Brokerage location is required' });
 
   const lead = {
-    source: 'stockwise-waitlist',
-    name, email, company,
-    volume, tool, market,
+    source: 'stockwise-application',
+    name, email, company, discord, location,
+    teamSize, revenue, tool, market,
     user_agent: (req.headers['user-agent'] || '').slice(0, 500),
     ip: (req.headers['x-forwarded-for'] || '').split(',')[0].trim().slice(0, 64) || null,
     at: new Date().toISOString()
   };
 
-  console.log('[waitlist] new signup', lead);
+  console.log('[stockwise] application received', lead);
 
   const sideEffects = await Promise.allSettled([
     notifySlack(lead),
@@ -101,13 +105,16 @@ async function notifySlack(lead) {
   const url = process.env.SLACK_WEBHOOK_URL;
   if (!url) return;
 
-  const text = `New Stockwise waitlist signup — ${lead.name}${lead.company ? ` (${lead.company})` : ''}`;
+  const text = `New Stockwise application — ${lead.name}${lead.company ? ` (${lead.company})` : ''}`;
   const blocks = [
     { type:'header', text:{ type:'plain_text', text } },
     { type:'section', fields: [
       { type:'mrkdwn', text:`*Email*\n${lead.email}` },
-      { type:'mrkdwn', text:`*Company*\n${lead.company || '—'}` },
-      { type:'mrkdwn', text:`*Volume*\n${lead.volume || '—'}` },
+      { type:'mrkdwn', text:`*Brokerage*\n${lead.company || '—'}` },
+      { type:'mrkdwn', text:`*Discord*\n${lead.discord || '—'}` },
+      { type:'mrkdwn', text:`*Registered in*\n${lead.location || '—'}` },
+      { type:'mrkdwn', text:`*Brokerage size*\n${lead.teamSize || '—'}` },
+      { type:'mrkdwn', text:`*Monthly revenue*\n${lead.revenue || '—'}` },
       { type:'mrkdwn', text:`*Current tool*\n${lead.tool || '—'}` },
       { type:'mrkdwn', text:`*Main marketplace*\n${lead.market || '—'}` }
     ] }
@@ -127,15 +134,18 @@ async function notifyFounder(lead) {
   const to     = process.env.NOTIFY_EMAIL;
   if (!apiKey || !from || !to) return;
 
-  const subject = `New waitlist signup: ${lead.name}${lead.company ? ` — ${lead.company}` : ''}`;
+  const subject = `New beta application: ${lead.name}${lead.company ? ` — ${lead.company}` : ''}`;
   const html = `
     <div style="font-family:system-ui,sans-serif;font-size:14px;color:#222;line-height:1.5;max-width:560px">
-      <h2 style="margin:0 0 12px;font-size:18px">New Stockwise waitlist signup</h2>
+      <h2 style="margin:0 0 12px;font-size:18px">New Stockwise beta application</h2>
       <table cellpadding="6" style="border-collapse:collapse;width:100%;background:#fafafa;border-radius:6px">
         <tr><td><strong>Name</strong></td><td>${esc(lead.name)}</td></tr>
         <tr><td><strong>Email</strong></td><td><a href="mailto:${esc(lead.email)}">${esc(lead.email)}</a></td></tr>
-        <tr><td><strong>Company</strong></td><td>${esc(lead.company) || '—'}</td></tr>
-        <tr><td><strong>Volume</strong></td><td>${esc(lead.volume) || '—'}</td></tr>
+        <tr><td><strong>Brokerage</strong></td><td>${esc(lead.company) || '—'}</td></tr>
+        <tr><td><strong>Discord</strong></td><td>${esc(lead.discord) || '—'}</td></tr>
+        <tr><td><strong>Registered in</strong></td><td>${esc(lead.location) || '—'}</td></tr>
+        <tr><td><strong>Brokerage size</strong></td><td>${esc(lead.teamSize) || '—'}</td></tr>
+        <tr><td><strong>Monthly revenue</strong></td><td>${esc(lead.revenue) || '—'}</td></tr>
         <tr><td><strong>Current tool</strong></td><td>${esc(lead.tool) || '—'}</td></tr>
         <tr><td><strong>Main marketplace</strong></td><td>${esc(lead.market) || '—'}</td></tr>
       </table>

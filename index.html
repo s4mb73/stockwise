@@ -49,14 +49,14 @@
 <section class="hero">
   <div class="w"><div class="hg">
   <div>
-    <div class="hb rv"><span class="hb-dot"></span>Private beta — Q3 2026</div>
+    <div class="hb rv"><span class="hb-dot"></span>Beta open &mdash; applications reviewed weekly</div>
     <h1 class="rv d1">One inventory.<br><em>Every marketplace.</em></h1>
     <p class="hsub rv d2">Stockwise syncs StubHub, SeatGeek, Vivid Seats and Ticketmaster from a single source of truth. No double-sells. No stale prices. No more spreadsheets that fall apart at 5,000 tickets.</p>
     <div class="hbtns rv d3">
       <a href="#" onclick="oF();return false" class="btn btn-a btn-al btn-arr">Join the waitlist</a>
-      <a href="#faq-skybox" class="btn btn-g">Migrate from SkyBox</a>
+      <a href="#faq" class="btn btn-g">How it works</a>
     </div>
-    <div class="hp rv d4"><span class="hp-line"></span>Currently testing with 8 brokers managing 40k+ active listings.</div>
+    <div class="hp rv d4"><span class="hp-line"></span>Currently running with 10 brokers across 4,341 active listings.</div>
   </div>
   <div class="lp rv d2">
     <div class="lp-top">
@@ -137,12 +137,12 @@
 
 <!-- STATS -->
 <section class="stats"><div class="w"><div class="sr">
-  <div class="si rv"><div class="sn cu" data-count="10">10</div><div class="sl">Marketplaces<br>synced from day one</div></div>
-  <div class="si rv d1"><div class="sn cu" data-count="60" data-prefix="&lt;" data-suffix="s">&lt;60s</div><div class="sl">For a sale to pull<br>from every channel</div></div>
-  <div class="si rv d2"><div class="sn cu" data-count="0">0</div><div class="sl">Double-sells<br>across beta cohort</div></div>
-  <div class="si rv d3"><div class="sn cu" data-count="4" data-suffix=" hrs">4 hrs</div><div class="sl">Saved per day<br>on pricing &amp; relisting</div></div>
+  <div class="si rv"><div class="sn cu" data-count="4341" data-format="comma">4,341</div><div class="sl">Active listings<br>across the beta cohort</div></div>
+  <div class="si rv d1"><div class="sn cu" data-count="5" data-prefix="&lt;" data-suffix="s">&lt;5s</div><div class="sl">For a sale to pull<br>from every channel</div></div>
+  <div class="si rv d2"><div class="sn cu" data-count="40" data-prefix="+" data-suffix="%">+40%</div><div class="sl">More sales by listing<br>safely on every channel</div></div>
+  <div class="si rv d3"><div class="sn cu" data-count="4" data-suffix=" hrs">4 hrs</div><div class="sl">Saved per day<br>on pricing &amp; fulfillment</div></div>
 </div>
-<p class="stats-note">Numbers from the private beta &mdash; 8 brokers running between 500 and 12,000 active listings.</p>
+<p class="stats-note">Numbers from our private beta &mdash; 10 brokers running 4,341 active listings combined.</p>
 </div></section>
 
 <!-- PROBLEM -->
@@ -281,7 +281,7 @@
 <!-- HOW IT WORKS -->
 <section class="sec" id="how"><div class="w">
   <div class="ey rv"><span class="ey-d"></span><span class="ey-t">How it works</span></div>
-  <h2 class="sh rv">From SkyBox export to live<br>across every marketplace in a day.</h2>
+  <h2 class="sh rv">From CSV import to live<br>across every marketplace in a day.</h2>
   <p class="ss rv">No 90-day onboarding. No professional services contract. You're listing through Stockwise by the end of the first afternoon.</p>
   <div class="tline rv">
     <div class="tline-track" aria-hidden="true"></div>
@@ -293,7 +293,7 @@
     <div class="tstep">
       <div class="tstep-dot">02</div>
       <h3>Import</h3>
-      <p>Drop your SkyBox or POS export, or pull from CSV. Stockwise reconciles every seat with what's actually listed on each marketplace, flags discrepancies, then takes over.</p>
+      <p>Drop your POS export or pull from CSV. Stockwise reconciles every seat with what's actually listed on each marketplace, flags discrepancies, then takes over.</p>
     </div>
     <div class="tstep">
       <div class="tstep-dot">03</div>
@@ -456,7 +456,7 @@
   </div>
   <div class="split-body">
   <div class="wlist rv">
-    <div class="wrow"><h3>High-volume brokers</h3><p>2,000+ active listings. The point where spreadsheets break and SkyBox fees start to bite. Stockwise scales with you, not against you.</p></div>
+    <div class="wrow"><h3>High-volume brokers</h3><p>2,000+ active listings. The point where spreadsheets break and your current POS starts costing more than it saves. Stockwise scales with you, not against you.</p></div>
     <div class="wrow"><h3>Multi-account operators</h3><p>Running multiple seller accounts on each marketplace to hedge footprint risk. Stockwise routes between them without leaking the connection.</p></div>
     <div class="wrow"><h3>Speculation desks</h3><p>If half your book is shorts you haven't taken delivery on yet, you need open-position tracking. Stockwise treats spec as a first-class object, not a workaround.</p></div>
     <div class="wrow"><h3>Sports &amp; concert resellers</h3><p>NBA, NFL, MLB, NHL, Broadway, arena tours. Whatever your category mix, the platform doesn't care &mdash; the comps and rules just work.</p></div>
@@ -470,36 +470,37 @@
   <div class="ey rv"><span class="ey-d"></span><span class="ey-t">FAQ</span></div>
   <h2 class="sh rv">The questions every broker asks first.</h2>
   <div class="rv" style="margin-top:28px">
-    <div class="fi" id="faq-skybox"><button class="fq" aria-expanded="false" aria-controls="fa1">Can I migrate from SkyBox?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa1" role="region">Yes. Drop your SkyBox export and we map every column. Most brokers are fully migrated within a day &mdash; the long part is just verifying the reconciliation matches what's live across your channels.</div></div>
+    <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa1">Can I migrate from my current tool?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa1" role="region">Yes. Drop your POS export or CSV and we map every column. Most brokers are fully migrated within a day &mdash; the long part is just verifying the reconciliation matches what's live across your channels.</div></div>
     <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa2">Which marketplaces do you sync?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa2" role="region">At launch: StubHub, SeatGeek, Vivid Seats, Ticketmaster, TickPick, AXS, Gametime, TicketNetwork, Tixstar, Ticombo. New marketplaces ship roughly every quarter &mdash; usually voted on by the beta cohort.</div></div>
-    <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa3">How fast is the sync?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa3" role="region">A sale on any connected marketplace pulls the listing from every other channel in under 60 seconds. Beta cohort is averaging 18 seconds. Zero double-sells across the cohort since we rebuilt the sync layer in late 2025.</div></div>
+    <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa3">How fast is the sync?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa3" role="region">A sale on any connected marketplace pulls the listing from every other channel in under 5 seconds. That's what lets the beta cohort safely list on every channel at once &mdash; the reason they're seeing 40% more sales than before.</div></div>
     <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa4">Does AutoPrice work for spec?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa4" role="region">Yes. Spec positions get their own pricing rules &mdash; usually wider floors and tighter ceilings &mdash; and the engine knows to factor in your expected cost on delivery, not the listed price.</div></div>
-    <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa5">What does it cost?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa5" role="region">We're holding pricing until the beta closes so we get it right. The intent is flat-rate monthly, no per-listing fees, no per-sale fees &mdash; priced against the SkyBox tier you're on today, not a percentage of what you sell.</div></div>
+    <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa5">What does it cost?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa5" role="region">Flat monthly. No per-listing fees. No per-sale fees. Pricing is set per cohort during the beta so it lines up with your current volume &mdash; you'll know the number before you commit to anything.</div></div>
     <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa6">Is there an API?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa6" role="region">Yes, REST plus webhooks. Read your inventory, push listings, subscribe to sale events. Beta brokers have built their own internal dashboards on top of it.</div></div>
-    <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa7">When can I get in?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa7" role="region">Private beta is full. We're onboarding from the waitlist every two weeks in cohorts of three. Sign up below &mdash; we'll tell you where you sit in the queue.</div></div>
+    <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa7">When can I get in?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa7" role="region">Beta is open and we're reviewing applications weekly. Apply below and we'll be back to you within the week with a slot in the next cohort or an honest answer about timing.</div></div>
   </div>
 </div></section>
 
 <!-- PRICING -->
 <section class="sec sec-tight" id="pricing"><div class="w">
   <div class="ey rv"><span class="ey-d"></span><span class="ey-t">Pricing</span></div>
-  <h2 class="sh rv">We'll quote you when the beta closes.</h2>
-  <p class="ss rv">The intent: flat monthly, priced against the SkyBox tier you're on today. No per-listing fees. No per-sale fees. You'll know the number before you commit.</p>
+  <h2 class="sh rv">Flat monthly. No per-listing fees. No surprises.</h2>
+  <p class="ss rv">Pricing is set per cohort during the beta to line up with your real volume. You'll know the number before you commit to anything.</p>
   <div class="pricing-grid rv">
     <div class="pricing-rules">
       <div class="pr-h">The model</div>
       <div class="pr-row"><span class="pr-l">Billing</span><span class="pr-v">Flat monthly</span></div>
       <div class="pr-row"><span class="pr-l">Per-listing fees</span><span class="pr-v is-good">None</span></div>
       <div class="pr-row"><span class="pr-l">Per-sale fees</span><span class="pr-v is-good">None</span></div>
-      <div class="pr-row"><span class="pr-l">Anchor</span><span class="pr-v">Your current SkyBox tier</span></div>
+      <div class="pr-row"><span class="pr-l">Setup &amp; migration</span><span class="pr-v is-good">No charge</span></div>
     </div>
     <div class="pricing-included">
       <div class="pr-h">In every plan</div>
       <ul class="pi-list">
-        <li>All 10 marketplaces, day one</li>
+        <li>Every marketplace we support, day one</li>
         <li>Unlimited listings, unlimited accounts</li>
         <li>AutoPrice engine and live comps</li>
         <li>Spec / open-position tracking</li>
+        <li>Multi-currency P&amp;L (USD, EUR, GBP, AED)</li>
         <li>REST API + webhooks</li>
         <li>A direct line to the team building it</li>
       </ul>
@@ -620,8 +621,8 @@
     <div id="f2" style="display:none">
       <div class="fh"><div class="fsl">Step 2 of 4</div><div class="ftl">What are you using right now?</div><div class="fsb">Honest answer is fine. Most brokers we talk to use two or three of these.</div></div>
       <div class="fbd"><div class="fos" data-s="2">
-        <button type="button" class="fop" onclick="sO(this)">SkyBox</button>
-        <button type="button" class="fop" onclick="sO(this)">Brokergenius / AutoProcessor</button>
+        <button type="button" class="fop" onclick="sO(this)">A dedicated POS</button>
+        <button type="button" class="fop" onclick="sO(this)">A pricing tool only</button>
         <button type="button" class="fop" onclick="sO(this)">Spreadsheets</button>
         <button type="button" class="fop" onclick="sO(this)">In-house tool</button>
         <button type="button" class="fop" onclick="sO(this)">Something else</button>

@@ -192,3 +192,7 @@ document.addEventListener('keydown',e=>{
 
 // Init dots
 renderDots();
+
+// Footer year
+const yr=document.getElementById('yr');
+if(yr) yr.textContent=new Date().getFullYear();

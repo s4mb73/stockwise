@@ -53,8 +53,8 @@
     <h1 class="rv d1">One inventory.<br><em>Every marketplace.</em></h1>
     <p class="hsub rv d2">Stockwise syncs StubHub, SeatGeek, Vivid Seats and Ticketmaster from a single source of truth. No double-sells. No stale prices. No more spreadsheets that fall apart at 5,000 tickets.</p>
     <div class="hbtns rv d3">
-      <a href="#" onclick="oF();return false" class="btn btn-a btn-al">Join the waitlist</a>
-      <a href="#how" class="btn btn-g">See how it works</a>
+      <a href="#" onclick="oF();return false" class="btn btn-a btn-al btn-arr">Join the waitlist</a>
+      <a href="#faq" class="btn btn-g">Migrate from SkyBox</a>
     </div>
     <div class="hp rv d4"><span class="hp-line"></span>Currently testing with 8 brokers managing 40k+ active listings.</div>
   </div>
@@ -482,8 +482,7 @@
      Recommended: a wide, dark venue interior or crowd shot, 1600px+, JPG.
      If the image fails to load, the CSS gradient backdrop renders cleanly on its own. -->
 <section class="venues"><div class="venues-stage">
-  <img class="venues-img" src="" alt="" loading="lazy"
-       onload="this.classList.add('loaded')"
+  <img class="venues-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" loading="lazy"
        onerror="this.remove()">
   <div class="venues-grad"></div>
   <div class="venues-copy">
@@ -510,7 +509,7 @@
       </svg>
       <span class="logo-word">stockwise</span>
     </a>
-    <span class="fc2">&copy; <script>document.write(new Date().getFullYear())</script> Stockwise</span>
+    <span class="fc2">&copy; <span id="yr">2026</span> Stockwise</span>
   </div>
   <div class="fr2">
     <a href="mailto:hello@stockwise.app">hello@stockwise.app</a>
@@ -522,36 +521,36 @@
 </div></div></footer>
 
 <!-- WAITLIST FORM MODAL -->
-<div class="fo" id="fo" role="dialog" aria-modal="true" aria-labelledby="ftl-main" onclick="if(event.target===this)cF()">
+<div class="fo" id="fo" role="dialog" aria-modal="true" aria-label="Join the Stockwise waitlist" onclick="if(event.target===this)cF()">
   <div class="fcard">
-    <button class="fx" onclick="cF()">&#x2715;</button>
+    <button class="fx" aria-label="Close" onclick="cF()">&#x2715;</button>
     <div id="f1">
       <div class="fh"><div class="fsl">Step 1 of 4</div><div class="ftl" id="ftl-main">How many active listings do you run?</div><div class="fsb">So we can prioritize the right cohort for you.</div></div>
       <div class="fbd"><div class="fos" data-s="1">
-        <div class="fop" onclick="sO(this)">Under 500</div>
-        <div class="fop" onclick="sO(this)">500 &mdash; 2,000</div>
-        <div class="fop" onclick="sO(this)">2,000 &mdash; 10,000</div>
-        <div class="fop" onclick="sO(this)">10,000+</div>
+        <button type="button" class="fop" onclick="sO(this)">Under 500</button>
+        <button type="button" class="fop" onclick="sO(this)">500 &mdash; 2,000</button>
+        <button type="button" class="fop" onclick="sO(this)">2,000 &mdash; 10,000</button>
+        <button type="button" class="fop" onclick="sO(this)">10,000+</button>
       </div></div>
     </div>
     <div id="f2" style="display:none">
       <div class="fh"><div class="fsl">Step 2 of 4</div><div class="ftl">What are you using right now?</div><div class="fsb">Honest answer is fine. Most brokers we talk to use two or three of these.</div></div>
       <div class="fbd"><div class="fos" data-s="2">
-        <div class="fop" onclick="sO(this)">SkyBox</div>
-        <div class="fop" onclick="sO(this)">Brokergenius / AutoProcessor</div>
-        <div class="fop" onclick="sO(this)">Spreadsheets</div>
-        <div class="fop" onclick="sO(this)">In-house tool</div>
-        <div class="fop" onclick="sO(this)">Something else</div>
+        <button type="button" class="fop" onclick="sO(this)">SkyBox</button>
+        <button type="button" class="fop" onclick="sO(this)">Brokergenius / AutoProcessor</button>
+        <button type="button" class="fop" onclick="sO(this)">Spreadsheets</button>
+        <button type="button" class="fop" onclick="sO(this)">In-house tool</button>
+        <button type="button" class="fop" onclick="sO(this)">Something else</button>
       </div></div>
     </div>
     <div id="f3" style="display:none">
       <div class="fh"><div class="fsl">Step 3 of 4</div><div class="ftl">Where do you sell?</div><div class="fsb">Pick your main channel &mdash; we'll cover the rest.</div></div>
       <div class="fbd"><div class="fos" data-s="3">
-        <div class="fop" onclick="sO(this)">StubHub</div>
-        <div class="fop" onclick="sO(this)">SeatGeek</div>
-        <div class="fop" onclick="sO(this)">Vivid Seats</div>
-        <div class="fop" onclick="sO(this)">Ticketmaster</div>
-        <div class="fop" onclick="sO(this)">Multiple &mdash; it's a mix</div>
+        <button type="button" class="fop" onclick="sO(this)">StubHub</button>
+        <button type="button" class="fop" onclick="sO(this)">SeatGeek</button>
+        <button type="button" class="fop" onclick="sO(this)">Vivid Seats</button>
+        <button type="button" class="fop" onclick="sO(this)">Ticketmaster</button>
+        <button type="button" class="fop" onclick="sO(this)">Multiple &mdash; it's a mix</button>
       </div></div>
     </div>
     <div id="f4" style="display:none">

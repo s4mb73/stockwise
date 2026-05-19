@@ -157,6 +157,14 @@ nav.open .nav-toggle-close{display:block}
 
 /* ── Section header ──────────────────────────────────── */
 .sec{padding:80px 0;border-bottom:1px solid var(--border)}
+
+/* Platform section — the page's visual peak: wider, taller, slight tonal shift */
+.sec-platform{padding:140px 0;background:linear-gradient(180deg,var(--bg) 0%,#080910 22%,#080910 78%,var(--bg) 100%)}
+.pp-frame{max-width:1280px;margin:32px auto 0;padding:0 32px}
+@media(max-width:768px){
+  .sec-platform{padding:72px 0}
+  .pp-frame{padding:0 20px;margin-top:16px}
+}
 .ey{display:flex;align-items:center;gap:8px;margin-bottom:16px}
 .ey-d{width:6px;height:6px;border-radius:50%;background:var(--accent);position:relative}
 .ey-d::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:eyHalo 3s var(--ease) infinite;pointer-events:none}
@@ -198,7 +206,7 @@ nav.open .nav-toggle-close{display:block}
 }
 
 /* ── Platform preview (analytics dashboard mockup) ───── */
-.pp{position:relative;background:var(--bg);border:1px solid var(--b2);border-radius:var(--rlg);overflow:hidden;max-width:1040px;margin:8px auto 0;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.pp{position:relative;background:var(--bg);border:1px solid var(--b2);border-radius:var(--rlg);overflow:hidden;max-width:1180px;margin:0 auto;box-shadow:0 32px 80px -24px rgba(0,0,0,.65)}
 .pp-chrome{position:relative;display:flex;align-items:center;justify-content:center;height:34px;background:#08090d;border-bottom:1px solid var(--border)}
 .pp-dots{position:absolute;left:12px;top:50%;transform:translateY(-50%);display:flex;gap:6px}
 .pp-dots span{width:11px;height:11px;border-radius:50%;display:block}

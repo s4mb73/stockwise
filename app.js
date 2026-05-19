@@ -5,8 +5,9 @@ function toggleNav(){const n=document.querySelector('nav');const o=n.classList.t
 function closeNav(){const n=document.querySelector('nav');n.classList.remove('open');n.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
 
 // ── Stagger index: tag children of grids/lists so CSS can compute delays
-document.querySelectorAll('.svg, .wlist, .tline').forEach(parent=>{
-  const sel=parent.classList.contains('svg')?'.svc':parent.classList.contains('wlist')?'.wrow':'.tstep';
+document.querySelectorAll('.svg, .wlist, .tline, .pp-metrics6').forEach(parent=>{
+  const cls=parent.classList;
+  const sel=cls.contains('svg')?'.svc':cls.contains('wlist')?'.wrow':cls.contains('tline')?'.tstep':'.pp-m';
   parent.querySelectorAll(sel).forEach((child,i)=>child.style.setProperty('--i',i));
 });
 
@@ -15,7 +16,14 @@ const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches
 function fmt(n,el){
   const prefix=el.dataset.prefix||'';
   const suffix=el.dataset.suffix||'';
-  const v=el.dataset.format==='comma'?Math.round(n).toLocaleString('en-US'):Math.round(n);
+  const dec=parseInt(el.dataset.decimals||'0',10);
+  const num=Number(n);
+  let v;
+  if(el.dataset.format==='comma'){
+    v=num.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+  }else{
+    v=dec>0?num.toFixed(dec):Math.round(num);
+  }
   return prefix+v+suffix;
 }
 function countUp(el){

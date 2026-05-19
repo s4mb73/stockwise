@@ -337,99 +337,132 @@
   <div class="pp rv">
     <div class="pp-chrome">
       <div class="pp-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="pp-title">stockwise.app &mdash; inventory</div>
+      <div class="pp-title">stockwise.app &mdash; dashboard</div>
+      <div class="pp-live"><span class="pp-live-dot" aria-hidden="true"></span>Live</div>
     </div>
     <div class="pp-body">
-      <aside class="pp-side" aria-hidden="true">
-        <div class="pp-side-head">
-          <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="40" width="72" height="72" rx="6"/><rect x="144" y="40" width="72" height="72" rx="6"/><rect x="40" y="144" width="72" height="72" rx="6"/><rect x="144" y="144" width="72" height="72" rx="6"/></svg>
-          Dashboard
+      <div class="pp-header">
+        <div>
+          <div class="pp-page-h">Dashboard</div>
+          <div class="pp-page-s">Overview of your ticket portfolio</div>
         </div>
-        <div class="pp-side-group">
-          <div class="pp-side-lab"><span>Operations</span></div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><rect x="32" y="40" width="52" height="176" rx="6"/><rect x="102" y="40" width="52" height="176" rx="6"/><rect x="172" y="40" width="52" height="176" rx="6"/></svg>
-            Board
-          </div>
-          <div class="pp-side-i is-active">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><path d="M32 80l96-48 96 48-96 48-96-48z"/><path d="M32 128l96 48 96-48"/><path d="M32 176l96 48 96-48"/></svg>
-            Inventory
-          </div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><polyline points="32 208 96 144 144 184 224 80"/><polyline points="176 80 224 80 224 128"/></svg>
-            Sales
-          </div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><rect x="32" y="56" width="192" height="144" rx="8"/><polyline points="40 72 128 152 216 72"/></svg>
-            Emails
-          </div>
+        <button class="pp-add" type="button" tabindex="-1">+ Add tickets</button>
+      </div>
+
+      <div class="pp-metrics6">
+        <div class="pp-m">
+          <div class="pp-m-l"><span class="pp-m-dot is-blue"></span>Total invested</div>
+          <div class="pp-m-v">&pound;<span class="cu" data-count="80154.14" data-format="comma" data-decimals="2">80,154.14</span></div>
         </div>
-        <div class="pp-side-group">
-          <div class="pp-side-lab"><span>Finance</span></div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="88"/><path d="M128 72v112"/><path d="M152 96h-32a16 16 0 000 32h16a16 16 0 010 32h-32"/></svg>
-            Finances
-          </div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="100" r="40"/><path d="M48 216c0-40 36-64 80-64s80 24 80 64"/></svg>
-            Investors
-          </div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><path d="M56 32h112l32 32v160a8 8 0 01-8 8H56a8 8 0 01-8-8V40a8 8 0 018-8z"/><line x1="88" y1="120" x2="168" y2="120"/><line x1="88" y1="160" x2="168" y2="160"/></svg>
-            P&amp;L Report
-          </div>
+        <div class="pp-m">
+          <div class="pp-m-l"><span class="pp-m-dot is-green"></span>Total revenue</div>
+          <div class="pp-m-v">&pound;<span class="cu" data-count="62831.59" data-format="comma" data-decimals="2">62,831.59</span></div>
+          <div class="pp-m-sub">186 tickets sold</div>
         </div>
-        <div class="pp-side-group">
-          <div class="pp-side-lab"><span>Admin</span></div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="108" r="36"/><circle cx="180" cy="108" r="28"/><path d="M32 200c0-28 30-44 68-44s68 16 68 44"/><path d="M180 156c28 0 44 14 44 36"/></svg>
-            Team
-          </div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><polyline points="32 128 80 128 104 72 152 184 176 128 224 128"/></svg>
-            Activity
-          </div>
-          <div class="pp-side-i">
-            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="36"/><path d="M128 32v24M128 200v24M32 128h24M200 128h24M60 60l17 17M179 179l17 17M60 196l17-17M179 77l17-17"/></svg>
-            Settings
-          </div>
+        <div class="pp-m">
+          <div class="pp-m-l"><span class="pp-m-dot is-green"></span>Net profit</div>
+          <div class="pp-m-v">&pound;<span class="cu" data-count="32761.81" data-format="comma" data-decimals="2">32,761.81</span></div>
+          <div class="pp-m-sub is-good">ROI: +40.9%</div>
         </div>
-      </aside>
-      <main class="pp-main">
-        <div class="pp-metrics">
-          <div class="pp-metric"><div class="pp-l">Listings</div><div class="pp-n cu" data-count="5247" data-format="comma">5,247</div><div class="pp-sub">+312 today</div></div>
-          <div class="pp-metric"><div class="pp-l">Sold today</div><div class="pp-n is-green cu" data-count="84">84</div><div class="pp-sub">+12 vs yesterday</div></div>
-          <div class="pp-metric"><div class="pp-l">Avg margin</div><div class="pp-n cu" data-count="31" data-suffix="%">31%</div><div class="pp-sub">After all fees</div></div>
-          <div class="pp-metric"><div class="pp-l">Double-sells</div><div class="pp-n cu" data-count="0">0</div><div class="pp-sub">Down from 14</div></div>
+        <div class="pp-m">
+          <div class="pp-m-l"><span class="pp-m-dot is-green"></span>This month</div>
+          <div class="pp-m-v">&pound;<span class="cu" data-count="492.56" data-format="comma" data-decimals="2">492.56</span></div>
+          <div class="pp-m-sub">8 sold &middot; &pound;1,185.80 rev</div>
         </div>
-        <div class="pp-rows">
-          <div class="pp-r">
-            <span class="pp-r-dot is-green" aria-hidden="true"></span>
-            <span class="pp-r-title">Knicks vs Celtics <span class="pp-r-sub">&mdash; MSG Sec 117, Row C</span></span>
-            <span class="pp-badge is-sold">Sold &times;6</span>
-            <span class="pp-r-time">just now</span>
+        <div class="pp-m">
+          <div class="pp-m-l"><span class="pp-m-dot is-orange"></span>In stock</div>
+          <div class="pp-m-v"><span class="cu" data-count="356">356</span></div>
+          <div class="pp-m-sub">11 events</div>
+        </div>
+        <div class="pp-m">
+          <div class="pp-m-l"><span class="pp-m-dot is-blue"></span>Total sold</div>
+          <div class="pp-m-v"><span class="cu" data-count="186">186</span></div>
+          <div class="pp-m-sub">89 transactions</div>
+        </div>
+      </div>
+
+      <div class="pp-panel">
+        <div class="pp-panel-h">Monthly profit</div>
+        <div class="pp-chart">
+          <div class="pp-bar" style="--h:23%">
+            <div class="pp-bar-track"><div class="pp-bar-val">+&pound;5,988.54</div><div class="pp-bar-fill"></div></div>
+            <div class="pp-bar-lab">Mar</div>
           </div>
-          <div class="pp-r">
-            <span class="pp-r-dot is-blue" aria-hidden="true"></span>
-            <span class="pp-r-title">Taylor Swift <span class="pp-r-sub">&mdash; SoFi Stadium Sec 240</span></span>
-            <span class="pp-badge is-auto">Auto-priced</span>
-            <span class="pp-r-time">2m ago</span>
+          <div class="pp-bar pp-bar-peak" style="--h:95%">
+            <div class="pp-bar-track"><div class="pp-bar-val">+&pound;26,280.71</div><div class="pp-bar-fill"></div></div>
+            <div class="pp-bar-lab">Apr</div>
           </div>
-          <div class="pp-r">
-            <span class="pp-r-dot is-green" aria-hidden="true"></span>
-            <span class="pp-r-title">Hamilton <span class="pp-r-sub">&mdash; Richard Rodgers Theatre, Orch</span></span>
-            <span class="pp-badge is-sold">Sold &times;2</span>
-            <span class="pp-r-time">5m ago</span>
-          </div>
-          <div class="pp-r">
-            <span class="pp-r-dot is-mute" aria-hidden="true"></span>
-            <span class="pp-r-title">Lakers vs Warriors <span class="pp-r-sub">&mdash; Crypto Arena Sec 110</span></span>
-            <span class="pp-badge is-sync">Synced</span>
-            <span class="pp-r-time">8m ago</span>
+          <div class="pp-bar" style="--h:5%">
+            <div class="pp-bar-track"><div class="pp-bar-val">+&pound;492.56</div><div class="pp-bar-fill"></div></div>
+            <div class="pp-bar-lab">May</div>
           </div>
         </div>
-        <div class="pp-cap">Example dashboard &mdash; private beta data</div>
-      </main>
+      </div>
+
+      <div class="pp-twocol">
+        <div class="pp-panel">
+          <div class="pp-panel-h">Top events by profit</div>
+          <div class="pp-panel-s">All time performance</div>
+          <div class="pp-tlist">
+            <div class="pp-tr" style="--w:100%">
+              <span class="pp-tr-n">1</span>
+              <div class="pp-tr-body">
+                <div class="pp-tr-row"><span class="pp-tr-name">C&eacute;line Dion</span><span class="pp-tr-v">+&pound;26,206.55</span></div>
+                <span class="pp-tr-bar"><span class="pp-tr-fill"></span></span>
+              </div>
+            </div>
+            <div class="pp-tr" style="--w:12%">
+              <span class="pp-tr-n">2</span>
+              <div class="pp-tr-body">
+                <div class="pp-tr-row"><span class="pp-tr-name">JAY-Z 25</span><span class="pp-tr-v">+&pound;3,127.92</span></div>
+                <span class="pp-tr-bar"><span class="pp-tr-fill"></span></span>
+              </div>
+            </div>
+            <div class="pp-tr" style="--w:7%">
+              <span class="pp-tr-n">3</span>
+              <div class="pp-tr-body">
+                <div class="pp-tr-row"><span class="pp-tr-name">Jay-Z Extra Innings</span><span class="pp-tr-v">+&pound;1,879.36</span></div>
+                <span class="pp-tr-bar"><span class="pp-tr-fill"></span></span>
+              </div>
+            </div>
+            <div class="pp-tr" style="--w:2%">
+              <span class="pp-tr-n">4</span>
+              <div class="pp-tr-body">
+                <div class="pp-tr-row"><span class="pp-tr-name">MUSE</span><span class="pp-tr-v">+&pound;364.02</span></div>
+                <span class="pp-tr-bar"><span class="pp-tr-fill"></span></span>
+              </div>
+            </div>
+            <div class="pp-tr" style="--w:2%">
+              <span class="pp-tr-n">5</span>
+              <div class="pp-tr-body">
+                <div class="pp-tr-row"><span class="pp-tr-name">YE &ndash; LIVE IN LOS ANGELES</span><span class="pp-tr-v">+&pound;351.32</span></div>
+                <span class="pp-tr-bar"><span class="pp-tr-fill"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pp-panel">
+          <div class="pp-panel-h-row">
+            <div>
+              <div class="pp-panel-h">Completed sales</div>
+              <div class="pp-panel-s">All matched transactions</div>
+            </div>
+            <button class="pp-btn-s" type="button" tabindex="-1">View all</button>
+          </div>
+          <div class="pp-slist">
+            <div class="pp-s"><div><div class="pp-s-name">Ye</div><div class="pp-s-meta">Viagogo &middot; 2x &middot; 2026-03-25</div></div><div class="pp-s-vals"><div class="pp-s-p">+&pound;87.42</div><div class="pp-s-r">&pound;223.76</div></div></div>
+            <div class="pp-s"><div><div class="pp-s-name">YE &ndash; LIVE IN LOS ANGELES</div><div class="pp-s-meta">Viagogo &middot; 2x &middot; 2026-03-25</div></div><div class="pp-s-vals"><div class="pp-s-p">+&pound;166.70</div><div class="pp-s-r">&pound;420.64</div></div></div>
+            <div class="pp-s"><div><div class="pp-s-name">YE &ndash; LIVE IN LOS ANGELES</div><div class="pp-s-meta">Viagogo &middot; 2x &middot; 2026-03-25</div></div><div class="pp-s-vals"><div class="pp-s-p">+&pound;184.62</div><div class="pp-s-r">&pound;438.56</div></div></div>
+            <div class="pp-s"><div><div class="pp-s-name">JAY-Z 25</div><div class="pp-s-meta">Viagogo &middot; 4x &middot; 2026-03-25</div></div><div class="pp-s-vals"><div class="pp-s-p">+&pound;1,172.56</div><div class="pp-s-r">&pound;1,790.00</div></div></div>
+            <div class="pp-s"><div><div class="pp-s-name">JAY-Z 25</div><div class="pp-s-meta">Viagogo &middot; 4x &middot; 2026-03-25</div></div><div class="pp-s-vals"><div class="pp-s-p">+&pound;599.24</div><div class="pp-s-r">&pound;1,571.60</div></div></div>
+            <div class="pp-s"><div><div class="pp-s-name">JAY-Z 25</div><div class="pp-s-meta">Viagogo &middot; 3x &middot; 2026-03-25</div></div><div class="pp-s-vals"><div class="pp-s-p">+&pound;678.06</div><div class="pp-s-r">&pound;1,141.14</div></div></div>
+            <div class="pp-s"><div><div class="pp-s-name">JAY-Z 25</div><div class="pp-s-meta">Viagogo &middot; 1x &middot; 2026-03-25</div></div><div class="pp-s-vals"><div class="pp-s-p">+&pound;226.02</div><div class="pp-s-r">&pound;380.38</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pp-cap">Example dashboard &mdash; private beta data</div>
     </div>
   </div>
 

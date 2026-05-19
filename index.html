@@ -335,33 +335,101 @@
   <p class="ss rv">A real-time view of your inventory across every connected marketplace. No tab-switching. No CSV exports. No "let me check the other tool".</p>
 
   <div class="pp rv">
-    <div class="pp-top">
-      <div class="pp-brand">
-        <svg class="logo-mark" viewBox="0 0 28 20" fill="none" aria-hidden="true">
-          <rect x="0" y="10" width="6" height="10" rx="1.6" fill="currentColor"/>
-          <rect x="11" y="4" width="6" height="16" rx="1.6" fill="currentColor"/>
-          <rect x="22" y="0" width="6" height="20" rx="1.6" fill="currentColor"/>
-        </svg>
-        <span class="pp-word">stockwise</span>
-      </div>
-      <div class="pp-status"><span class="pp-status-dot"></span>4 markets in sync</div>
+    <div class="pp-chrome">
+      <div class="pp-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="pp-title">stockwise.app &mdash; inventory</div>
     </div>
-
-    <div class="pp-metrics">
-      <div class="pp-metric"><div class="pp-n cu" data-count="5247" data-format="comma">5,247</div><div class="pp-l">Listings</div></div>
-      <div class="pp-metric"><div class="pp-n cu" data-count="84">84</div><div class="pp-l">Sold today</div></div>
-      <div class="pp-metric"><div class="pp-n cu" data-count="31" data-suffix="%">31%</div><div class="pp-l">Avg margin</div></div>
-      <div class="pp-metric"><div class="pp-n cu" data-count="0">0</div><div class="pp-l">Double-sells</div></div>
-    </div>
-
-    <div class="pp-table-wrap">
-      <div class="pp-table" aria-hidden="true">
-        <div class="pp-row"><span class="pp-c1">Knicks vs Celtics</span><span class="pp-c2">MSG &mdash; Sec 117</span><span class="pp-c3">Auto-priced</span><span class="pp-c4">Just now</span></div>
-        <div class="pp-row"><span class="pp-c1">Taylor Swift</span><span class="pp-c2">SoFi &mdash; Sec 240</span><span class="pp-c3">Listed</span><span class="pp-c4">2 min ago</span></div>
-        <div class="pp-row"><span class="pp-c1">Hamilton</span><span class="pp-c2">Richard Rodgers &mdash; Orch</span><span class="pp-c3">Sold</span><span class="pp-c4">5 min ago</span></div>
-        <div class="pp-row"><span class="pp-c1">Lakers vs Warriors</span><span class="pp-c2">Crypto Arena &mdash; Sec 110</span><span class="pp-c3">Synced</span><span class="pp-c4">8 min ago</span></div>
-      </div>
-      <div class="pp-overlay"><span>Beta access only</span></div>
+    <div class="pp-body">
+      <aside class="pp-side" aria-hidden="true">
+        <div class="pp-side-head">
+          <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="40" width="72" height="72" rx="6"/><rect x="144" y="40" width="72" height="72" rx="6"/><rect x="40" y="144" width="72" height="72" rx="6"/><rect x="144" y="144" width="72" height="72" rx="6"/></svg>
+          Dashboard
+        </div>
+        <div class="pp-side-group">
+          <div class="pp-side-lab"><span>Operations</span></div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><rect x="32" y="40" width="52" height="176" rx="6"/><rect x="102" y="40" width="52" height="176" rx="6"/><rect x="172" y="40" width="52" height="176" rx="6"/></svg>
+            Board
+          </div>
+          <div class="pp-side-i is-active">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><path d="M32 80l96-48 96 48-96 48-96-48z"/><path d="M32 128l96 48 96-48"/><path d="M32 176l96 48 96-48"/></svg>
+            Inventory
+          </div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><polyline points="32 208 96 144 144 184 224 80"/><polyline points="176 80 224 80 224 128"/></svg>
+            Sales
+          </div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><rect x="32" y="56" width="192" height="144" rx="8"/><polyline points="40 72 128 152 216 72"/></svg>
+            Emails
+          </div>
+        </div>
+        <div class="pp-side-group">
+          <div class="pp-side-lab"><span>Finance</span></div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="88"/><path d="M128 72v112"/><path d="M152 96h-32a16 16 0 000 32h16a16 16 0 010 32h-32"/></svg>
+            Finances
+          </div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="100" r="40"/><path d="M48 216c0-40 36-64 80-64s80 24 80 64"/></svg>
+            Investors
+          </div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><path d="M56 32h112l32 32v160a8 8 0 01-8 8H56a8 8 0 01-8-8V40a8 8 0 018-8z"/><line x1="88" y1="120" x2="168" y2="120"/><line x1="88" y1="160" x2="168" y2="160"/></svg>
+            P&amp;L Report
+          </div>
+        </div>
+        <div class="pp-side-group">
+          <div class="pp-side-lab"><span>Admin</span></div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="108" r="36"/><circle cx="180" cy="108" r="28"/><path d="M32 200c0-28 30-44 68-44s68 16 68 44"/><path d="M180 156c28 0 44 14 44 36"/></svg>
+            Team
+          </div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><polyline points="32 128 80 128 104 72 152 184 176 128 224 128"/></svg>
+            Activity
+          </div>
+          <div class="pp-side-i">
+            <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="36"/><path d="M128 32v24M128 200v24M32 128h24M200 128h24M60 60l17 17M179 179l17 17M60 196l17-17M179 77l17-17"/></svg>
+            Settings
+          </div>
+        </div>
+      </aside>
+      <main class="pp-main">
+        <div class="pp-metrics">
+          <div class="pp-metric"><div class="pp-l">Listings</div><div class="pp-n cu" data-count="5247" data-format="comma">5,247</div><div class="pp-sub">+312 today</div></div>
+          <div class="pp-metric"><div class="pp-l">Sold today</div><div class="pp-n is-green cu" data-count="84">84</div><div class="pp-sub">+12 vs yesterday</div></div>
+          <div class="pp-metric"><div class="pp-l">Avg margin</div><div class="pp-n cu" data-count="31" data-suffix="%">31%</div><div class="pp-sub">After all fees</div></div>
+          <div class="pp-metric"><div class="pp-l">Double-sells</div><div class="pp-n cu" data-count="0">0</div><div class="pp-sub">Down from 14</div></div>
+        </div>
+        <div class="pp-rows">
+          <div class="pp-r">
+            <span class="pp-r-dot is-green" aria-hidden="true"></span>
+            <span class="pp-r-title">Knicks vs Celtics <span class="pp-r-sub">&mdash; MSG Sec 117, Row C</span></span>
+            <span class="pp-badge is-sold">Sold &times;6</span>
+            <span class="pp-r-time">just now</span>
+          </div>
+          <div class="pp-r">
+            <span class="pp-r-dot is-blue" aria-hidden="true"></span>
+            <span class="pp-r-title">Taylor Swift <span class="pp-r-sub">&mdash; SoFi Stadium Sec 240</span></span>
+            <span class="pp-badge is-auto">Auto-priced</span>
+            <span class="pp-r-time">2m ago</span>
+          </div>
+          <div class="pp-r">
+            <span class="pp-r-dot is-green" aria-hidden="true"></span>
+            <span class="pp-r-title">Hamilton <span class="pp-r-sub">&mdash; Richard Rodgers Theatre, Orch</span></span>
+            <span class="pp-badge is-sold">Sold &times;2</span>
+            <span class="pp-r-time">5m ago</span>
+          </div>
+          <div class="pp-r">
+            <span class="pp-r-dot is-mute" aria-hidden="true"></span>
+            <span class="pp-r-title">Lakers vs Warriors <span class="pp-r-sub">&mdash; Crypto Arena Sec 110</span></span>
+            <span class="pp-badge is-sync">Synced</span>
+            <span class="pp-r-time">8m ago</span>
+          </div>
+        </div>
+        <div class="pp-cap">Example dashboard &mdash; private beta data</div>
+      </main>
     </div>
   </div>
 

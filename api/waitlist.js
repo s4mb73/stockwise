@@ -75,6 +75,7 @@ export default async function handler(req, res) {
 
   if (!name) return res.status(400).json({ error: 'Name is required' });
   if (!EMAIL_RE.test(email)) return res.status(400).json({ error: 'Valid email is required' });
+  if (!discord) return res.status(400).json({ error: 'Discord username is required' });
   if (!location) return res.status(400).json({ error: 'Brokerage location is required' });
 
   const lead = {

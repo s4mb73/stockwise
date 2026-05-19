@@ -117,9 +117,11 @@ function showStep(n){
 function applyValid(){
   const name=document.getElementById('fN').value.trim();
   const email=document.getElementById('fE').value.trim();
+  const discord=document.getElementById('fD').value.trim();
   const location=document.getElementById('fL').value.trim();
   return name.length>=2
     && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    && discord.length>=2
     && location.length>=2;
 }
 
@@ -127,7 +129,7 @@ let contactWired=false;
 function wireContactStep(){
   if(contactWired) return; contactWired=true;
   const en=()=>{document.getElementById('fnx').disabled=!applyValid()};
-  ['fN','fE','fL'].forEach(id=>document.getElementById(id).addEventListener('input',en));
+  ['fN','fE','fD','fL'].forEach(id=>document.getElementById(id).addEventListener('input',en));
 }
 
 function syncNextBtn(){
@@ -164,6 +166,7 @@ async function submitForm(){
 
   if(name.length<2){err.textContent='Please enter your name.';err.style.display='block';return}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Please enter a valid email.';err.style.display='block';return}
+  if(discord.length<2){err.textContent='Discord username is required so we can add you to the beta server.';err.style.display='block';return}
   if(location.length<2){err.textContent='Please tell us where your brokerage is registered.';err.style.display='block';return}
 
   const btn=document.getElementById('fnx');

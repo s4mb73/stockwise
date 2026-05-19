@@ -158,6 +158,25 @@ nav.open .nav-toggle-close{display:block}
 /* ── Section header ──────────────────────────────────── */
 .sec{padding:80px 0;border-bottom:1px solid var(--border)}
 
+/* Split layout — sticky heading left, content right (Problem / Features / Who) */
+.sec-split .w{display:grid;grid-template-columns:340px 1fr;gap:60px;align-items:start}
+.sec-split .split-head{position:sticky;top:88px}
+.sec-split .sh{margin-bottom:14px;max-width:none}
+.sec-split .ss{margin-bottom:0;max-width:none}
+.sec-split .svg{grid-template-columns:repeat(2,1fr)}
+.sec-split #problem .svc:last-child:nth-child(3){grid-column:1/-1}
+@media(max-width:1024px){
+  .sec-split .w{grid-template-columns:280px 1fr;gap:40px}
+}
+@media(max-width:900px){
+  .sec-split .w{grid-template-columns:1fr;gap:32px}
+  .sec-split .split-head{position:static}
+  .sec-split .svg{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  .sec-split .svg{grid-template-columns:1fr}
+}
+
 /* Platform section — the page's visual peak: wider, taller, slight tonal shift */
 .sec-platform{padding:140px 0;background:linear-gradient(180deg,var(--bg) 0%,#080910 22%,#080910 78%,var(--bg) 100%)}
 .pp-frame{max-width:1280px;margin:32px auto 0;padding:0 32px}

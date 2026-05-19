@@ -60,6 +60,24 @@ requestAnimationFrame(()=>{
   if(s) s.classList.add('in');
 });
 
+// ── Hero sync-ripple cycle: rotates through marketplaces every ~6s
+(function(){
+  const mps=document.querySelectorAll('.hero-mp');
+  if(!mps.length||reduceMotion) return;
+  const net=document.querySelector('.hero-net');
+  let i=0;
+  function step(){
+    mps.forEach(m=>m.classList.remove('is-selling','is-pulled'));
+    void net.offsetWidth; // force reflow so animations restart
+    requestAnimationFrame(()=>{
+      mps[i].classList.add('is-selling');
+      mps.forEach((m,idx)=>{if(idx!==i) m.classList.add('is-pulled')});
+      i=(i+1)%mps.length;
+    });
+  }
+  setTimeout(()=>{step();setInterval(step,6000)},1800);
+})();
+
 // ── FAQ accordion ──────────────────────────────────────
 document.querySelectorAll('.fq').forEach(btn=>{
   btn.addEventListener('click',()=>{

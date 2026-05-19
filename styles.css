@@ -50,18 +50,44 @@ nav.open .nav-toggle-close{display:block}
 .hero::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(143,183,255,.10) 0%,transparent 70%);pointer-events:none;z-index:0}
 .hg{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:center;position:relative;z-index:2}
 
-/* Hero ambient scene — animated network converging to the snapshot card */
+/* Hero sync-ripple scene — marketplaces converge to the snapshot card */
 .hero-scene{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity 1.2s var(--ease) .3s}
 .hero-scene.in{opacity:1}
 .hero-net{position:absolute;inset:0;width:100%;height:100%}
-.hero-net-line{stroke:var(--accent);stroke-width:.6;fill:none;opacity:0;animation:netLine 1.4s var(--ease) forwards}
-@keyframes netLine{from{opacity:0}to{opacity:.18}}
-.hero-net-node{fill:var(--accent);opacity:.45}
-.hero-net-hub{fill:var(--accent);opacity:.85;filter:drop-shadow(0 0 6px rgba(143,183,255,.6))}
-.hero-net-hub-ring{fill:none;stroke:var(--accent);stroke-width:.8;opacity:.35;transform-origin:center;animation:hubRing 4s var(--ease) infinite}
-@keyframes hubRing{0%{r:8;opacity:.45}100%{r:28;opacity:0}}
-.hero-net-pulse{fill:var(--accent);r:2.2;opacity:0;animation:netPulse 5.5s linear infinite}
-@keyframes netPulse{0%{opacity:0;transform:translate(var(--x0),var(--y0))}8%{opacity:1}88%{opacity:1}100%{opacity:0;transform:translate(var(--x1),var(--y1))}}
+.hero-line{stroke:var(--accent);stroke-width:.5;fill:none;opacity:.12;transition:stroke .4s var(--ease),opacity .4s var(--ease),stroke-width .4s var(--ease)}
+.hero-node{fill:var(--accent);opacity:.55;transition:fill .3s var(--ease),opacity .3s var(--ease),r .3s var(--ease)}
+.hero-label{fill:var(--t3);opacity:.65;font-size:11.5px;font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:.2px;transition:fill .3s var(--ease),opacity .3s var(--ease);user-select:none}
+.hero-hub-glow{fill:var(--accent);opacity:.9;filter:drop-shadow(0 0 10px rgba(143,183,255,.8))}
+
+/* Selling state — green flash + line lights up */
+.hero-mp.is-selling .hero-node{fill:var(--green);opacity:1;r:4}
+.hero-mp.is-selling .hero-label{fill:var(--green);opacity:1}
+.hero-mp.is-selling .hero-line{stroke:var(--green);opacity:.5;stroke-width:.9}
+
+/* Pulled state — accent highlight */
+.hero-mp.is-pulled .hero-node{fill:var(--accent);opacity:.95;r:3.2}
+.hero-mp.is-pulled .hero-label{fill:var(--accent);opacity:.85}
+.hero-mp.is-pulled .hero-line{opacity:.22}
+
+/* Pulses */
+.hero-pulse{opacity:0;pointer-events:none}
+.pulse-in{fill:var(--green);filter:drop-shadow(0 0 4px rgba(62,207,142,.6))}
+.pulse-out{fill:var(--accent);filter:drop-shadow(0 0 4px rgba(143,183,255,.6))}
+.hero-mp.is-selling .pulse-in{animation:pulseIn 1s var(--ease) forwards}
+.hero-mp.is-pulled .pulse-out{animation:pulseOut 1s var(--ease) .85s forwards}
+@keyframes pulseIn{
+  0%{transform:translate(var(--nx),var(--ny));opacity:0}
+  15%{opacity:1}
+  85%{opacity:1}
+  100%{transform:translate(900px,300px);opacity:0}
+}
+@keyframes pulseOut{
+  0%{transform:translate(900px,300px);opacity:0}
+  15%{opacity:1}
+  85%{opacity:1}
+  100%{transform:translate(var(--nx),var(--ny));opacity:0}
+}
+
 @media(max-width:900px){.hero-scene{display:none}}
 .hb{display:inline-flex;align-items:center;gap:7px;background:var(--accent-bg);border:1px solid rgba(143,183,255,.20);border-radius:100px;padding:5px 14px 5px 9px;font-size:12.5px;font-weight:500;color:var(--accent);margin-bottom:24px}
 .hb-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:p 2.5s var(--ease) infinite;position:relative}
@@ -460,7 +486,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
 @media(max-width:768px){.venues-stage{height:240px}.venues-copy{padding:0 20px 22px}}
 
 @media (prefers-reduced-motion: reduce){
-  .hero-scene,.hero-net-pulse,.hero-net-hub-ring,.venues-stage::after{animation:none}
+  .hero-scene,.hero-pulse,.venues-stage::after{animation:none}
   .hero-scene{opacity:1}
   .lp .lp-outcome,.pp .pp-m,.svg .svc,.wlist .wrow,.tline .tstep{opacity:1 !important;transform:none !important;transition:none !important}
   .pp-bar-fill{height:var(--h,0) !important;transition:none !important}

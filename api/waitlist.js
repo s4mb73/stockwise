@@ -8,12 +8,52 @@
 //   RESEND_API_KEY      — required for any email
 //   FROM_EMAIL          — e.g. "Stockwise <hello@stockwise.app>"
 //   NOTIFY_EMAIL        — founder-facing notification recipient
+//   ALLOWED_ORIGINS     — comma-separated origins; defaults to stockwise.app
+//   RATE_LIMIT_PER_MIN  — max submissions per IP per minute (default 5)
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://stockwise.app,https://www.stockwise.app').split(',').map(s => s.trim());
+const RATE_PER_MIN = parseInt(process.env.RATE_LIMIT_PER_MIN || '5', 10);
+
+// In-memory rate limiter — ephemeral per warm instance, enough to bound bursts.
+// For persistent rate limiting use Vercel KV or similar.
+const RATE = new Map();
+function rateCheck(ip) {
+  const now = Date.now();
+  const e = RATE.get(ip);
+  if (!e || e.resetAt < now) {
+    RATE.set(ip, { count: 1, resetAt: now + 60000 });
+    return true;
+  }
+  if (e.count >= RATE_PER_MIN) return false;
+  e.count++;
+  return true;
+}
+// Opportunistic cleanup so the Map doesn't grow unbounded
+function gcRate() {
+  if (RATE.size < 200) return;
+  const now = Date.now();
+  for (const [k, v] of RATE) if (v.resetAt < now) RATE.delete(k);
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Origin check — block requests from outside the allowlist.
+  // Browsers always send Origin on cross-origin POSTs; same-origin may omit it.
+  const origin = req.headers.origin;
+  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+
+  // Rate limit per IP. X-Forwarded-For on Vercel is trustworthy.
+  const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  gcRate();
+  if (!rateCheck(ip)) {
+    return res.status(429).json({ error: 'Too many requests. Try again in a minute.' });
   }
 
   let body = req.body;

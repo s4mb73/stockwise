@@ -253,7 +253,7 @@ nav.open .nav-toggle-close{display:block}
 .pp-m-dot.is-blue{background:var(--accent)}
 .pp-m-dot.is-green{background:var(--green)}
 .pp-m-dot.is-orange{background:var(--orange)}
-.pp-m-v{font-family:'Newsreader',serif;font-size:24px;color:var(--t1);line-height:1;letter-spacing:-.3px;font-variant-numeric:tabular-nums;font-weight:400}
+.pp-m-v{font-family:'Newsreader',serif;font-size:clamp(18px,1.7vw,22px);color:var(--t1);line-height:1;letter-spacing:-.4px;font-variant-numeric:tabular-nums;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pp-m-sub{font-size:11.5px;color:var(--t3);font-weight:300;margin-top:auto}
 .pp-m-sub.is-good{color:var(--green)}
 

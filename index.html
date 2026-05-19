@@ -46,7 +46,50 @@
 </div></div></nav>
 
 <!-- HERO -->
-<section class="hero"><div class="w"><div class="hg">
+<section class="hero">
+  <div class="hero-scene" aria-hidden="true">
+    <svg class="hero-net" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+      <g class="hero-net-lines">
+        <line class="hero-net-line" x1="140" y1="110" x2="900" y2="290" style="animation-delay:.4s"/>
+        <line class="hero-net-line" x1="90"  y1="240" x2="900" y2="290" style="animation-delay:.55s"/>
+        <line class="hero-net-line" x1="170" y1="400" x2="900" y2="290" style="animation-delay:.7s"/>
+        <line class="hero-net-line" x1="40"  y1="510" x2="900" y2="290" style="animation-delay:.85s"/>
+        <line class="hero-net-line" x1="300" y1="60"  x2="900" y2="290" style="animation-delay:1.0s"/>
+        <line class="hero-net-line" x1="380" y1="320" x2="900" y2="290" style="animation-delay:.5s"/>
+        <line class="hero-net-line" x1="310" y1="470" x2="900" y2="290" style="animation-delay:.65s"/>
+        <line class="hero-net-line" x1="530" y1="200" x2="900" y2="290" style="animation-delay:.8s"/>
+        <line class="hero-net-line" x1="560" y1="410" x2="900" y2="290" style="animation-delay:.95s"/>
+        <line class="hero-net-line" x1="220" y1="270" x2="900" y2="290" style="animation-delay:.6s"/>
+      </g>
+      <g>
+        <circle class="hero-net-node" cx="140" cy="110" r="2.4"/>
+        <circle class="hero-net-node" cx="90"  cy="240" r="2.4"/>
+        <circle class="hero-net-node" cx="170" cy="400" r="2.4"/>
+        <circle class="hero-net-node" cx="40"  cy="510" r="2.4"/>
+        <circle class="hero-net-node" cx="300" cy="60"  r="2.4"/>
+        <circle class="hero-net-node" cx="380" cy="320" r="2.4"/>
+        <circle class="hero-net-node" cx="310" cy="470" r="2.4"/>
+        <circle class="hero-net-node" cx="530" cy="200" r="2.4"/>
+        <circle class="hero-net-node" cx="560" cy="410" r="2.4"/>
+        <circle class="hero-net-node" cx="220" cy="270" r="2.4"/>
+      </g>
+      <g>
+        <circle class="hero-net-hub" cx="900" cy="290" r="4"/>
+        <circle class="hero-net-hub-ring" cx="900" cy="290" r="8"/>
+      </g>
+      <g>
+        <circle class="hero-net-pulse" cx="0" cy="0" style="--x0:140px;--y0:110px;--x1:900px;--y1:290px;animation-delay:.2s"/>
+        <circle class="hero-net-pulse" cx="0" cy="0" style="--x0:90px;--y0:240px;--x1:900px;--y1:290px;animation-delay:1.4s"/>
+        <circle class="hero-net-pulse" cx="0" cy="0" style="--x0:170px;--y0:400px;--x1:900px;--y1:290px;animation-delay:2.1s"/>
+        <circle class="hero-net-pulse" cx="0" cy="0" style="--x0:300px;--y0:60px;--x1:900px;--y1:290px;animation-delay:.8s"/>
+        <circle class="hero-net-pulse" cx="0" cy="0" style="--x0:380px;--y0:320px;--x1:900px;--y1:290px;animation-delay:3.0s"/>
+        <circle class="hero-net-pulse" cx="0" cy="0" style="--x0:530px;--y0:200px;--x1:900px;--y1:290px;animation-delay:1.7s"/>
+        <circle class="hero-net-pulse" cx="0" cy="0" style="--x0:560px;--y0:410px;--x1:900px;--y1:290px;animation-delay:3.6s"/>
+        <circle class="hero-net-pulse" cx="0" cy="0" style="--x0:220px;--y0:270px;--x1:900px;--y1:290px;animation-delay:2.5s"/>
+      </g>
+    </svg>
+  </div>
+  <div class="w"><div class="hg">
   <div>
     <div class="hb rv"><span class="hb-dot"></span>Private beta — Q3 2026</div>
     <h1 class="rv d1">One inventory.<br><em>Every marketplace.</em></h1>
@@ -65,15 +108,15 @@
     <div class="lp-rev">
       <div class="lp-rev-cell">
         <div class="lp-rev-l">Active listings</div>
-        <div class="lp-rev-v">5,247</div>
+        <div class="lp-rev-v cu" data-count="5247" data-format="comma">5,247</div>
       </div>
       <div class="lp-rev-cell">
         <div class="lp-rev-l">Sold today</div>
-        <div class="lp-rev-v lp-rev-won">84</div>
+        <div class="lp-rev-v lp-rev-won cu" data-count="84">84</div>
       </div>
       <div class="lp-rev-cell">
         <div class="lp-rev-l">Avg margin</div>
-        <div class="lp-rev-v">31%</div>
+        <div class="lp-rev-v cu" data-count="31" data-suffix="%">31%</div>
       </div>
     </div>
     <div class="lp-outcomes">
@@ -127,10 +170,10 @@
 
 <!-- STATS -->
 <section class="stats"><div class="w"><div class="sr">
-  <div class="si rv"><div class="sn">10</div><div class="sl">Marketplaces<br>synced from day one</div></div>
-  <div class="si rv d1"><div class="sn">&lt;60s</div><div class="sl">For a sale to pull<br>from every channel</div></div>
-  <div class="si rv d2"><div class="sn">0</div><div class="sl">Double-sells<br>across beta cohort</div></div>
-  <div class="si rv d3"><div class="sn">4 hrs</div><div class="sl">Saved per day<br>on pricing &amp; relisting</div></div>
+  <div class="si rv"><div class="sn cu" data-count="10">10</div><div class="sl">Marketplaces<br>synced from day one</div></div>
+  <div class="si rv d1"><div class="sn cu" data-count="60" data-prefix="&lt;" data-suffix="s">&lt;60s</div><div class="sl">For a sale to pull<br>from every channel</div></div>
+  <div class="si rv d2"><div class="sn cu" data-count="0">0</div><div class="sl">Double-sells<br>across beta cohort</div></div>
+  <div class="si rv d3"><div class="sn cu" data-count="4" data-suffix=" hrs">4 hrs</div><div class="sl">Saved per day<br>on pricing &amp; relisting</div></div>
 </div>
 <p class="stats-note">Numbers from the private beta &mdash; 8 brokers running between 500 and 12,000 active listings.</p>
 </div></section>
@@ -305,10 +348,10 @@
     </div>
 
     <div class="pp-metrics">
-      <div class="pp-metric"><div class="pp-n">5,247</div><div class="pp-l">Listings</div></div>
-      <div class="pp-metric"><div class="pp-n">84</div><div class="pp-l">Sold today</div></div>
-      <div class="pp-metric"><div class="pp-n">31%</div><div class="pp-l">Avg margin</div></div>
-      <div class="pp-metric"><div class="pp-n">0</div><div class="pp-l">Double-sells</div></div>
+      <div class="pp-metric"><div class="pp-n cu" data-count="5247" data-format="comma">5,247</div><div class="pp-l">Listings</div></div>
+      <div class="pp-metric"><div class="pp-n cu" data-count="84">84</div><div class="pp-l">Sold today</div></div>
+      <div class="pp-metric"><div class="pp-n cu" data-count="31" data-suffix="%">31%</div><div class="pp-l">Avg margin</div></div>
+      <div class="pp-metric"><div class="pp-n cu" data-count="0">0</div><div class="pp-l">Double-sells</div></div>
     </div>
 
     <div class="pp-table-wrap">
@@ -373,6 +416,21 @@
       <div class="fc-t">Brokers + ex-fintech engineers</div>
       <p class="fc-b">We started this after spending a season inside a real broker operation and watching them lose money to the same three problems every single week. Software exists for this. It's expensive, brittle, and built for a market that hasn't moved in a decade. We're building what we wanted to use.</p>
     </div>
+  </div>
+</div></section>
+
+<!-- VENUES ATMOSPHERE BAND -->
+<!-- Drop a real arena/crowd photo into the <img src> below when you have one.
+     Recommended: a wide, dark venue interior or crowd shot, 1600px+, JPG.
+     If the image fails to load, the CSS gradient backdrop renders cleanly on its own. -->
+<section class="venues"><div class="venues-stage">
+  <img class="venues-img" src="" alt="" loading="lazy"
+       onload="this.classList.add('loaded')"
+       onerror="this.remove()">
+  <div class="venues-grad"></div>
+  <div class="venues-copy">
+    <div class="venues-eyebrow">Every house, every night</div>
+    <p class="venues-line">Madison Square Garden. The O2. Crypto Arena. Wherever the doors open, your inventory is already priced.</p>
   </div>
 </div></section>
 

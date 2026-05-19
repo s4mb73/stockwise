@@ -4,11 +4,53 @@
 function toggleNav(){const n=document.querySelector('nav');const o=n.classList.toggle('open');n.querySelector('.nav-toggle').setAttribute('aria-expanded',o)}
 function closeNav(){const n=document.querySelector('nav');n.classList.remove('open');n.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
 
+// ── Stagger index: tag children of grids/lists so CSS can compute delays
+document.querySelectorAll('.svg, .wlist, .tline').forEach(parent=>{
+  const sel=parent.classList.contains('svg')?'.svc':parent.classList.contains('wlist')?'.wrow':'.tstep';
+  parent.querySelectorAll(sel).forEach((child,i)=>child.style.setProperty('--i',i));
+});
+
+// ── Count-up: animate a number to its data-count value when revealed
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fmt(n,el){
+  const prefix=el.dataset.prefix||'';
+  const suffix=el.dataset.suffix||'';
+  const v=el.dataset.format==='comma'?Math.round(n).toLocaleString('en-US'):Math.round(n);
+  return prefix+v+suffix;
+}
+function countUp(el){
+  if(el.dataset.cuDone) return;
+  el.dataset.cuDone='1';
+  const target=parseFloat(el.dataset.count);
+  if(reduceMotion||isNaN(target)){el.textContent=fmt(target||0,el);return}
+  const dur=1400, start=performance.now();
+  const ease=t=>1-Math.pow(1-t,3);
+  function tick(now){
+    const p=Math.min(1,(now-start)/dur);
+    el.textContent=fmt(target*ease(p),el);
+    if(p<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
 // ── Reveal on scroll ───────────────────────────────────
 const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    e.target.classList.add('in');
+    // Trigger count-ups inside (or on) the revealed element
+    e.target.querySelectorAll?.('.cu').forEach(countUp);
+    if(e.target.classList.contains('cu')) countUp(e.target);
+    io.unobserve(e.target);
+  });
 },{rootMargin:'0px 0px -40px 0px',threshold:.05});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// ── Hero ambient scene: fade in after first paint ──────
+requestAnimationFrame(()=>{
+  const s=document.querySelector('.hero-scene');
+  if(s) s.classList.add('in');
+});
 
 // ── FAQ accordion ──────────────────────────────────────
 document.querySelectorAll('.fq').forEach(btn=>{

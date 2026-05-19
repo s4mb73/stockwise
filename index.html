@@ -54,7 +54,7 @@
     <p class="hsub rv d2">Stockwise syncs StubHub, SeatGeek, Vivid Seats and Ticketmaster from a single source of truth. No double-sells. No stale prices. No more spreadsheets that fall apart at 5,000 tickets.</p>
     <div class="hbtns rv d3">
       <a href="#" onclick="oF();return false" class="btn btn-a btn-al btn-arr">Join the waitlist</a>
-      <a href="#faq" class="btn btn-g">Migrate from SkyBox</a>
+      <a href="#faq-skybox" class="btn btn-g">Migrate from SkyBox</a>
     </div>
     <div class="hp rv d4"><span class="hp-line"></span>Currently testing with 8 brokers managing 40k+ active listings.</div>
   </div>
@@ -461,7 +461,7 @@
   <div class="ey rv"><span class="ey-d"></span><span class="ey-t">FAQ</span></div>
   <h2 class="sh rv">The questions every broker asks first.</h2>
   <div class="rv" style="margin-top:28px">
-    <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa1">Can I migrate from SkyBox?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa1" role="region">Yes. Drop your SkyBox export and we map every column. Most brokers are fully migrated within a day &mdash; the long part is just verifying the reconciliation matches what's live across your channels.</div></div>
+    <div class="fi" id="faq-skybox"><button class="fq" aria-expanded="false" aria-controls="fa1">Can I migrate from SkyBox?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa1" role="region">Yes. Drop your SkyBox export and we map every column. Most brokers are fully migrated within a day &mdash; the long part is just verifying the reconciliation matches what's live across your channels.</div></div>
     <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa2">Which marketplaces do you sync?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa2" role="region">At launch: StubHub, SeatGeek, Vivid Seats, Ticketmaster, TickPick, AXS, Gametime, TicketNetwork, Tixstar, Ticombo. New marketplaces ship roughly every quarter &mdash; usually voted on by the beta cohort.</div></div>
     <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa3">How fast is the sync?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa3" role="region">A sale on any connected marketplace pulls the listing from every other channel in under 60 seconds. Beta cohort is averaging 18 seconds. Zero double-sells across the cohort since we rebuilt the sync layer in late 2025.</div></div>
     <div class="fi"><button class="fq" aria-expanded="false" aria-controls="fa4">Does AutoPrice work for spec?<span class="fic" aria-hidden="true">+</span></button><div class="fa" id="fa4" role="region">Yes. Spec positions get their own pricing rules &mdash; usually wider floors and tighter ceilings &mdash; and the engine knows to factor in your expected cost on delivery, not the listed price.</div></div>

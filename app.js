@@ -217,10 +217,18 @@ if(yr) yr.textContent=new Date().getFullYear();
     setTimeout(()=>card.classList.remove('is-ticking'),1100);
   }
 
-  // Wait for the initial reveal count-up to finish before starting
+  // Pause ticker when dashboard is off-screen; resume when back in view.
+  let timer=null;
+  function start(){if(!timer){tick();timer=setInterval(tick,7500)}}
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  const ppIo=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)start();else stop()});
+  },{threshold:.15});
+
+  // Wait for the initial reveal count-up to finish before observing
   (function waitForReveal(){
     if(cu.dataset.cuDone){
-      setTimeout(()=>{tick();setInterval(tick,14000)},2200);
+      setTimeout(()=>ppIo.observe(pp),1800);
     }else{
       setTimeout(waitForReveal,500);
     }

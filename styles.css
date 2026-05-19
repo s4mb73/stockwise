@@ -91,7 +91,11 @@ nav.open .nav-toggle-close{display:block}
 .lp-ev-t{font-size:13px;color:var(--t1);font-weight:400;margin-bottom:2px}
 .lp-ev-s{font-size:12.5px;color:var(--t2);font-weight:300}
 .lp-caption{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:11.5px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;text-align:center}
-@media(max-width:767px){.lp{display:none}}
+@media(max-width:767px){
+  .lp{margin:8px 0 0;max-width:none;padding:16px 16px 14px}
+  .lp-outcomes,.lp-caption{display:none}
+  .lp-rev{border-bottom:none;padding:14px 0 0}
+}
 @media (prefers-reduced-motion: reduce){.lp-status-dot{animation:none}}
 
 /* ── Reveal ────────────────────────────────────────── */
@@ -305,6 +309,14 @@ nav.open .nav-toggle-close{display:block}
   .pp-page-h{font-size:17px}
   .pp-live{display:none}
 }
+
+/* ── Pricing rules ──────────────────────────────────── */
+.sec-tight{padding:64px 0}
+.pricing-rules{margin-top:8px;border-top:1px solid var(--border);max-width:560px}
+.pr-row{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--border);gap:24px}
+.pr-l{font-size:11.5px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.pr-v{font-size:14px;color:var(--t1);font-weight:500;text-align:right}
+.pr-v.is-good{color:var(--green)}
 
 /* ── Founder block ───────────────────────────────────── */
 .fc{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;background:var(--s1);border:1px solid var(--border);border-radius:var(--rlg);padding:28px}

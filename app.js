@@ -196,3 +196,33 @@ renderDots();
 // Footer year
 const yr=document.getElementById('yr');
 if(yr) yr.textContent=new Date().getFullYear();
+
+// ── Dashboard live ticker: Total sold counter increments after reveal
+(function(){
+  if(reduceMotion) return;
+  const pp=document.querySelector('.pp');
+  if(!pp) return;
+  const cards=pp.querySelectorAll('.pp-m');
+  const card=cards[5]; // "Total sold" is the 6th metric
+  if(!card) return;
+  const cu=card.querySelector('.cu');
+  if(!cu) return;
+  let count=parseInt(cu.dataset.count,10)||0;
+
+  function tick(){
+    count++;
+    cu.dataset.count=count;
+    cu.textContent=count.toLocaleString('en-US');
+    card.classList.add('is-ticking');
+    setTimeout(()=>card.classList.remove('is-ticking'),1100);
+  }
+
+  // Wait for the initial reveal count-up to finish before starting
+  (function waitForReveal(){
+    if(cu.dataset.cuDone){
+      setTimeout(()=>{tick();setInterval(tick,14000)},2200);
+    }else{
+      setTimeout(waitForReveal,500);
+    }
+  })();
+})();

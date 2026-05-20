@@ -5,11 +5,8 @@ function toggleNav(){const n=document.querySelector('nav');const o=n.classList.t
 function closeNav(){const n=document.querySelector('nav');n.classList.remove('open');n.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
 
 // ── Stagger index: tag children of grids/lists so CSS can compute delays
-document.querySelectorAll('.tline, .pp-metrics6, .bento').forEach(parent=>{
-  const cls=parent.classList;
-  const sel=cls.contains('tline')?'.tstep'
-    :cls.contains('bento')?'.bento-tile'
-    :'.pp-m';
+document.querySelectorAll('.tline, .bento').forEach(parent=>{
+  const sel=parent.classList.contains('tline')?'.tstep':'.bento-tile';
   parent.querySelectorAll(sel).forEach((child,i)=>child.style.setProperty('--i',i));
 });
 
@@ -226,41 +223,3 @@ renderDots();
 // Footer year
 const yr=document.getElementById('yr');
 if(yr) yr.textContent=new Date().getFullYear();
-
-// ── Dashboard live ticker: Total sold counter increments after reveal
-(function(){
-  if(reduceMotion) return;
-  const pp=document.querySelector('.pp');
-  if(!pp) return;
-  const cards=pp.querySelectorAll('.pp-m');
-  const card=cards[5]; // "Total sold" is the 6th metric
-  if(!card) return;
-  const cu=card.querySelector('.cu');
-  if(!cu) return;
-  let count=parseInt(cu.dataset.count,10)||0;
-
-  function tick(){
-    count++;
-    cu.dataset.count=count;
-    cu.textContent=count.toLocaleString('en-US');
-    card.classList.add('is-ticking');
-    setTimeout(()=>card.classList.remove('is-ticking'),1100);
-  }
-
-  // Pause ticker when dashboard is off-screen; resume when back in view.
-  let timer=null;
-  function start(){if(!timer){tick();timer=setInterval(tick,7500)}}
-  function stop(){if(timer){clearInterval(timer);timer=null}}
-  const ppIo=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting)start();else stop()});
-  },{threshold:.15});
-
-  // Wait for the initial reveal count-up to finish before observing
-  (function waitForReveal(){
-    if(cu.dataset.cuDone){
-      setTimeout(()=>ppIo.observe(pp),1800);
-    }else{
-      setTimeout(waitForReveal,500);
-    }
-  })();
-})();

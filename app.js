@@ -5,14 +5,36 @@ function toggleNav(){const n=document.querySelector('nav');const o=n.classList.t
 function closeNav(){const n=document.querySelector('nav');n.classList.remove('open');n.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
 
 // ── Stagger index: tag children of grids/lists so CSS can compute delays
-document.querySelectorAll('.svg, .wlist, .tline, .pp-metrics6').forEach(parent=>{
+document.querySelectorAll('.svg, .wlist, .tline, .pp-metrics6, .bento').forEach(parent=>{
   const cls=parent.classList;
-  const sel=cls.contains('svg')?'.svc':cls.contains('wlist')?'.wrow':cls.contains('tline')?'.tstep':'.pp-m';
+  const sel=cls.contains('svg')?'.svc'
+    :cls.contains('wlist')?'.wrow'
+    :cls.contains('tline')?'.tstep'
+    :cls.contains('bento')?'.bento-tile'
+    :'.pp-m';
   parent.querySelectorAll(sel).forEach((child,i)=>child.style.setProperty('--i',i));
 });
 
-// ── Count-up: animate a number to its data-count value when revealed
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ── Smooth scroll (Lenis from CDN; silently no-ops to native scroll) ──
+let lenis=null;
+if(window.Lenis && !reduceMotion){
+  lenis=new Lenis({duration:1.1,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+  const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};
+  requestAnimationFrame(raf);
+  // Smooth anchor-link jumps (skip bare "#" CTAs — they open the modal)
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    const id=a.getAttribute('href');
+    if(id.length<2) return;
+    a.addEventListener('click',e=>{
+      const target=document.querySelector(id);
+      if(target){e.preventDefault();lenis.scrollTo(target,{offset:-72})}
+    });
+  });
+}
+
+// ── Count-up: animate a number to its data-count value when revealed
 function fmt(n,el){
   const prefix=el.dataset.prefix||'';
   const suffix=el.dataset.suffix||'';
@@ -72,6 +94,7 @@ let cur=1;
 function oF(){
   document.getElementById('fo').classList.add('on');
   document.body.style.overflow='hidden';
+  if(lenis) lenis.stop();
   // Focus first option for keyboard users
   setTimeout(()=>{
     const first=document.querySelector('#f'+cur+' .fop, #f'+cur+' .fin');
@@ -81,6 +104,7 @@ function oF(){
 function cF(){
   document.getElementById('fo').classList.remove('on');
   document.body.style.overflow='';
+  if(lenis) lenis.start();
 }
 
 // Select an option in current step

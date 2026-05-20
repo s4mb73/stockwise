@@ -5,11 +5,9 @@ function toggleNav(){const n=document.querySelector('nav');const o=n.classList.t
 function closeNav(){const n=document.querySelector('nav');n.classList.remove('open');n.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
 
 // ── Stagger index: tag children of grids/lists so CSS can compute delays
-document.querySelectorAll('.svg, .wlist, .tline, .pp-metrics6, .bento').forEach(parent=>{
+document.querySelectorAll('.tline, .pp-metrics6, .bento').forEach(parent=>{
   const cls=parent.classList;
-  const sel=cls.contains('svg')?'.svc'
-    :cls.contains('wlist')?'.wrow'
-    :cls.contains('tline')?'.tstep'
+  const sel=cls.contains('tline')?'.tstep'
     :cls.contains('bento')?'.bento-tile'
     :'.pp-m';
   parent.querySelectorAll(sel).forEach((child,i)=>child.style.setProperty('--i',i));

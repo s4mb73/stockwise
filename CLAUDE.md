@@ -42,11 +42,13 @@ Competitor context: SkyBox (Vivid-owned, dominant), Brokergenius / AutoProcessor
 - `--t1: #ecedf3` — text primary
 - `--t2: #9a9da8` — text secondary (passes WCAG AA)
 - `--t3: #5e6069` — text tertiary (eyebrow labels, captions)
-- `--accent: #8FB7FF` — single accent (cool blue)
-- `--accent-h: #a8c8ff` — accent hover
-- `--accent-bg: rgba(143,183,255,.10)` — accent tint
-- `--green: #3ecf8e` — success
+- `--accent: #34c47e` — single accent (profit green). Success/positive/live states all use `--accent` directly — there is no separate success color.
+- `--accent-h: #54d699` — accent hover
+- `--accent-bg: rgba(52,196,126,.10)` — accent tint
+- `--accent-bg2: rgba(52,196,126,.05)` — faint accent tint (form-field focus)
 - `--orange: #e8a43a` — warning (used sparingly)
+
+The accent is the brand. A broker's whole job is the green number at the bottom, so green carries every sale, every positive metric, every "live" indicator. Where a UI needs a secondary/informational marker (e.g. dashboard event dots that aren't sales), use a neutral `--t2` grey — never a second hue.
 
 ### Type scale
 - Hero `<h1>`: clamp(38px, 5vw, 58px) Newsreader 400, line-height 1.1
